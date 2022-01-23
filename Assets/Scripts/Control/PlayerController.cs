@@ -1,4 +1,5 @@
 using BlackCat.Combat;
+using BlackCat.Core;
 using BlackCat.Movement;
 using System;
 using System.Linq;
@@ -10,15 +11,19 @@ namespace BlackCat.Control
     {
         Mover MoverScript;
         Fighter FighterScript;
+        Health healthScript;
         void Start()
         {
             MoverScript = this.GetComponent<Mover>();
             FighterScript = this.GetComponent<Fighter>();
+            healthScript = this.GetComponent<Health>();
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (healthScript.IsDead()) return;
+
             this.Inputs();
         }
 
@@ -36,10 +41,11 @@ namespace BlackCat.Control
             foreach(var hit in hits)
             {
                 CombatTarget target = hit.transform.gameObject.GetComponent<CombatTarget>();
-                if (!FighterScript.CanAttack(target)) continue;
+                if (target == null) continue;                
+                if (!FighterScript.CanAttack(target.gameObject)) continue;
                 if (Input.GetMouseButtonDown(0))
                 {
-                    FighterScript.Attack(target);
+                    FighterScript.Attack(target.gameObject);
                 }
                 return true;
 

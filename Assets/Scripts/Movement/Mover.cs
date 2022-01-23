@@ -4,17 +4,19 @@ using UnityEngine;
 using UnityEngine.AI;
 namespace BlackCat.Movement
 {
-    public class Mover : MonoBehaviour , IAction
+    public class Mover : MonoBehaviour, IAction
     {
         private NavMeshAgent navMeshAgent;
-
+        Health health;
         void Start()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
+            health = GetComponent<Health>();
         }
 
         void Update()
         {
+            navMeshAgent.enabled = !health.IsDead();           
             UpdateSpeedAnimator();
         }
 

@@ -1,3 +1,4 @@
+using BlackCat.Core;
 using UnityEngine;
 
 namespace BlackCat.Combat {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BlackCat.Combat {
+namespace BlackCat.Core {
 	public class Health : MonoBehaviour
 	{
 		[SerializeField]
@@ -23,7 +23,7 @@ namespace BlackCat.Combat {
 			{
 				isDead = true;
 				GetComponent<Animator>().SetTrigger("die");
-				GetComponent<CapsuleCollider>().isTrigger = true;
+				GetComponent<ActionScheduler>().CancelCurrentAction();
 			}
         }
 	}

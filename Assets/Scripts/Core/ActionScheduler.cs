@@ -12,8 +12,6 @@ namespace BlackCat.Core {
             if (currentAction != null)
             {
                 currentAction.Cancel();
-                print(currentAction + " is Canceled");
-
             }
             currentAction = action;
         }
@@ -22,6 +20,11 @@ namespace BlackCat.Core {
         {
             return currentAction;
         }
+
+        public void CancelCurrentAction()
+        {
+            StartAction(null);
         }
+    }
 }
 

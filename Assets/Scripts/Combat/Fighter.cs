@@ -14,7 +14,7 @@ namespace BlackCat.Combat {
         Mover mover;
         [SerializeField]
         float timeBetweenAttacks = 1f;
-        float timeSinceLastAttack = 0f;
+        float timeSinceLastAttack = Mathf.Infinity;
 
         private void Start()
         {
@@ -43,10 +43,11 @@ namespace BlackCat.Combat {
             }
             
         }
-        public bool CanAttack(CombatTarget combatTarget)
+        public bool CanAttack(GameObject combatTarget)
         {
             if (combatTarget == null) return false;
-            if (combatTarget == this.GetComponent<CombatTarget>()) return false;
+            if (combatTarget == this.gameObject) return false;
+
             Health targetToTest = combatTarget.GetComponent<Health>();            
             return targetToTest != null && !targetToTest.IsDead();
             
@@ -96,7 +97,7 @@ namespace BlackCat.Combat {
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
 
-        public void Attack(CombatTarget target)
+        public void Attack(GameObject target)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             this.target = target.GetComponent<Health>();
