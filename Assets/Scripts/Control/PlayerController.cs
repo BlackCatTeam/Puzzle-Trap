@@ -36,14 +36,14 @@ namespace BlackCat.Control
 
         private bool InteractWithCombat()
         {
-            var hits = Physics.RaycastAll(GetMouseRay());
+            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
             
-            foreach(var hit in hits)
+            foreach(RaycastHit hit in hits)
             {
                 CombatTarget target = hit.transform.gameObject.GetComponent<CombatTarget>();
                 if (target == null) continue;                
                 if (!FighterScript.CanAttack(target.gameObject)) continue;
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButton(0))
                 {
                     FighterScript.Attack(target.gameObject);
                 }
@@ -63,7 +63,7 @@ namespace BlackCat.Control
             {
             if (Input.GetMouseButton(0))
                 {
-                    this.MoverScript.MoveToAction(hit.point);
+                    this.MoverScript.StartMoveAction(hit.point);
                 }
             }
             return hasHit;

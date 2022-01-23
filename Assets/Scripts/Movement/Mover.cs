@@ -26,7 +26,7 @@ namespace BlackCat.Movement
         {
             navMeshAgent.isStopped = true;
         }
-        public void MoveToAction(Vector3 destination)
+        public void StartMoveAction(Vector3 destination)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             this.MoveTo(destination);
