@@ -1,2 +1,2 @@
-# A Funny RPG Game with some Funny Moments And Funny Characters
- ## Don't Steal, just study
+# Puzzle Trap is a Puzzle Game with Some Combat elements
+ ## Partial GDD here
