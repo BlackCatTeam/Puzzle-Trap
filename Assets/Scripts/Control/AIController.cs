@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace BlackCat.Control {
 	public class AIController : MonoBehaviour
@@ -22,8 +23,7 @@ namespace BlackCat.Control {
         int CurrentWaypointIndex = 0;
 
 
-
-
+ 
         Vector3 guardPosition;
         [SerializeField]
         float timePauseBetweenWaypoint = 3f;
@@ -33,7 +33,13 @@ namespace BlackCat.Control {
         [SerializeField]
         float timeSuspicious = 3f;
         float timeSinceLastSawPlayer = Mathf.Infinity;
-
+        [SerializeField]
+        [Range(0,1)]
+        float patrolSpeedFraction = 0.2f;
+        [SerializeField]
+        [Range(0, 1)]
+        float chaseSpeedFraction = 0.4f;
+        NavMeshAgent navMeshAgent;
 
         private void Start()
         {            
@@ -42,6 +48,7 @@ namespace BlackCat.Control {
             health = this.GetComponent<Health>();
             moveScript = this.GetComponent<Mover>();
             guardPosition = this.transform.position;
+            navMeshAgent = this.GetComponent<NavMeshAgent>();
         }
 
         private void Update()
@@ -50,6 +57,7 @@ namespace BlackCat.Control {
 
             if (DistanceToPlayer() < chaseDistance && fighterScript.CanAttack(player))
             {
+               
                 timeSinceLastSawPlayer = 0f;
                 AttackBehavior();
             }
@@ -88,7 +96,7 @@ namespace BlackCat.Control {
             }
 
             if (this.transform.position != nextPosition)
-                moveScript.StartMoveAction(nextPosition);
+                moveScript.StartMoveAction(nextPosition,patrolSpeedFraction);
         }
         public Vector3 GetCurrentWaypoint()
         {

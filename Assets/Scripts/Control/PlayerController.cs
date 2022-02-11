@@ -12,6 +12,7 @@ namespace BlackCat.Control
         Mover MoverScript;
         Fighter FighterScript;
         Health healthScript;
+        
         void Start()
         {
             MoverScript = this.GetComponent<Mover>();
@@ -63,7 +64,7 @@ namespace BlackCat.Control
             {
             if (Input.GetMouseButton(0))
                 {
-                    this.MoverScript.StartMoveAction(hit.point);
+                    this.MoverScript.StartMoveAction(hit.point,1f);
                 }
             }
             return hasHit;
