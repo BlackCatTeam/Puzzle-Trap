@@ -1,4 +1,5 @@
 using BlackCat.Core;
+using BlackCat.Saving;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
-namespace cripts.SceneManagement {
+namespace BlackCat.SceneManagement {
 	public class Portal : MonoBehaviour
 	{
 
@@ -50,9 +51,15 @@ namespace cripts.SceneManagement {
 
             Fader fader = FindObjectOfType<Fader>();
             yield return fader.FadeOut(fadeOutTime);
+            SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
+            savingWrapper.Save();
             yield return SceneManager.LoadSceneAsync((int)Scene);
+
+            savingWrapper.Load();
             Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
+            savingWrapper.Save();
+
             yield return new WaitForSeconds(WaitFadeTime);
             
             yield return fader.FadeIn(fadeInTime);
@@ -76,8 +83,10 @@ namespace cripts.SceneManagement {
         private void UpdatePlayer(Portal otherPortal)
         {
             var player = GameObject.FindWithTag("Player");
+            player.GetComponent<NavMeshAgent>().enabled = false;
             player.GetComponent<NavMeshAgent>().Warp(otherPortal.SpawnPoint.position);
             player.transform.rotation = otherPortal.SpawnPoint.rotation;
+            player.GetComponent<NavMeshAgent>().enabled = true;
 
 
         }

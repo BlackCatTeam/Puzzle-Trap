@@ -9,11 +9,14 @@ namespace BlackCat.Core {
         CanvasGroup canvasGroup;
         [SerializeField]
         public float Timer = 3f;
-        private void Start()
+        private void Awake()
         {
             canvasGroup = this.GetComponent<CanvasGroup>();            
         }
-
+        public void FadeOutImmediate()
+        {
+            canvasGroup.alpha = 1;
+        }
         IEnumerator FadeOutIn(float time)
         {
             yield return FadeOut(time);

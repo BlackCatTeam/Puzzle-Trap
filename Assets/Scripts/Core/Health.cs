@@ -1,9 +1,10 @@
+using BlackCat.Saving;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace BlackCat.Core {	
-	public class Health : MonoBehaviour
+	public class Health : MonoBehaviour , ISaveable
 	{
 		[SerializeField]
 		[Min(0)]
@@ -19,12 +20,25 @@ namespace BlackCat.Core {
 		 
 		private void VerifyDeath()
         {
-			if (healthPoints == 0f && !IsDead())
+			if (IsDead()) return;
+
+			if (healthPoints <= 0f)
 			{
 				isDead = true;
 				GetComponent<Animator>().SetTrigger("die");
 				GetComponent<ActionScheduler>().CancelCurrentAction();
 			}
         }
-	}
+
+		public object CaptureState()
+		{
+			return healthPoints;
+		}
+
+        public void RestoreState(object state)
+        {
+			this.healthPoints = (float)state;
+			VerifyDeath();
+		}
+    }
 }

@@ -8,6 +8,7 @@ namespace BlackCat.Combat {
     {
         [SerializeField]
 		float WeaponRange = 2f;
+        [SerializeField]
         float WeaponDamage = 5f;
         [SerializeField]
         Health target;

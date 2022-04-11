@@ -80,6 +80,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8889015576014193057, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: uniqueIdentifier
+      value: player
+      objectReference: {fileID: 0}
     - target: {fileID: 3046678974594259504, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: maxSpeed
       value: 6
