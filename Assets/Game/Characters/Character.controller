@@ -106,7 +106,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_ANController
+  m_Name: Character
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: forwardSpeed
@@ -209,10 +209,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 4537280097813653448}
-    m_Position: {x: 300, y: 110, z: 0}
+    m_Position: {x: 280, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2198954954000515086}
-    m_Position: {x: 570, y: 80, z: 0}
+    m_Position: {x: 540, y: 20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8901092749789677406}
     m_Position: {x: 280, y: -20, z: 0}

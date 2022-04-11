@@ -5,21 +5,21 @@ using UnityEngine;
 
 namespace BlackCat.Combat {
 	public class Fighter : MonoBehaviour , IAction
-    {
-        [SerializeField]
-		float WeaponRange = 2f;
-        [SerializeField]
-        float WeaponDamage = 5f;
-        [SerializeField]
-        Health target;
-        Mover mover;
-        [SerializeField]
-        float timeBetweenAttacks = 1f;
+    {             
+        [SerializeField] Health target;
+        [SerializeField] Transform rightHandTransform = null;
+        [SerializeField] Transform leftHandTransform = null;
+        [SerializeField] Weapon defaultWeapon = null;
+
+        Weapon currentWeapon;
+        private Mover mover;        
         float timeSinceLastAttack = Mathf.Infinity;
 
         private void Start()
         {
+            
              mover = GetComponent<Mover>();
+            EquipWeapon(defaultWeapon);
         }
         private void Update()
         {
@@ -27,7 +27,7 @@ namespace BlackCat.Combat {
             //Cannot Attack Nothing
             if (target == null) return;
             // Cannot Attack a Dead Enemy
-            if (target.IsDead()) {return; }
+            if (target.IsDead()) return;
             // Cannot Attack Himself
             if (target == this) return;
 
@@ -42,7 +42,13 @@ namespace BlackCat.Combat {
                 mover.Cancel();
                 AttackBehavior();
             }
-            
+
+        }
+         
+        public void EquipWeapon(Weapon weapon)
+        {
+            currentWeapon = weapon;
+            weapon.Spawn(rightHandTransform,leftHandTransform, GetComponent<Animator>());
         }
         public bool CanAttack(GameObject combatTarget)
         {
@@ -59,13 +65,17 @@ namespace BlackCat.Combat {
         void Hit()
         {
             if (target == null) return;
-            target.TakeDamage(WeaponDamage);
+            target.TakeDamage(currentWeapon.GetDamage());
         }
 
+        void Shoot()
+        {
+            Hit();
+        }
         private void AttackBehavior()
         {
             this.transform.LookAt(target.transform);
-            if (timeSinceLastAttack > timeBetweenAttacks )
+            if (timeSinceLastAttack > currentWeapon.GetTimeBetweenAttacks() )
             {
                 TriggerAttack();
                 timeSinceLastAttack = 0f;
@@ -82,7 +92,7 @@ namespace BlackCat.Combat {
 
         private bool GetIsInRange()
         {
-            return Vector3.Distance(this.transform.position, target.transform.position) <= WeaponRange;
+            return Vector3.Distance(this.transform.position, target.transform.position) <= currentWeapon.GetRange();
         }
 
         public void Cancel()

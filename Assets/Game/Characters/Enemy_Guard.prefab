@@ -63,6 +63,26 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8460883947758829252, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 59db08011ce844846ac1797c06e5b00d, type: 2}
+    - target: {fileID: 8460883947758829252, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 59db08011ce844846ac1797c06e5b00d, type: 2}
+    - target: {fileID: 8460883947758829252, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: handTransform
+      value: 
+      objectReference: {fileID: 3786453861930677083}
+    - target: {fileID: 8460883947758829252, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: leftHandTransform
+      value: 
+      objectReference: {fileID: 3786453861930734387}
+    - target: {fileID: 8460883947758829252, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: rightHandTransform
+      value: 
+      objectReference: {fileID: 3786453861930677083}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
 --- !u!4 &3985551198158032778 stripped
@@ -131,3 +151,13 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 844bce0cbe7402a4c93bc44112b8a367, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+--- !u!4 &3786453861930734387 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 403948, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+  m_PrefabInstance: {fileID: 3786453861931137759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3786453861930677083 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 461188, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+  m_PrefabInstance: {fileID: 3786453861931137759}
+  m_PrefabAsset: {fileID: 0}
