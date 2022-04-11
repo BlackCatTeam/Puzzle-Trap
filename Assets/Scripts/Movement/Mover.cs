@@ -23,7 +23,10 @@ namespace BlackCat.Movement
             UpdateSpeedAnimator();
         }
 
-        private void UpdateSpeedAnimator() => this.GetComponent<Animator>().SetFloat("forwardSpeed", this.transform.InverseTransformDirection(navMeshAgent.velocity).z);
+        private void UpdateSpeedAnimator()
+        {
+            Debug.Log($"{gameObject.name} is Updating Speed Animator"); this.GetComponent<Animator>().SetFloat("forwardSpeed", this.transform.InverseTransformDirection(navMeshAgent.velocity).z);
+        }
 
         public void Stop()
         {
@@ -36,6 +39,7 @@ namespace BlackCat.Movement
         }
         public void MoveTo(Vector3 destination, float speedFraction)
         {
+            Debug.Log($"{gameObject.name} is Moving Speed Animator");
             navMeshAgent.destination = destination;
             navMeshAgent.speed = Mathf.Clamp01(speedFraction) * maxSpeed;
             navMeshAgent.isStopped = false;
