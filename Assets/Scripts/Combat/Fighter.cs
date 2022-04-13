@@ -14,6 +14,7 @@ namespace BlackCat.Combat {
         Weapon currentWeapon;
         private Mover mover;        
         float timeSinceLastAttack = Mathf.Infinity;
+        
 
         private void Start()
         {
@@ -44,7 +45,7 @@ namespace BlackCat.Combat {
             }
 
         }
-         
+
         public void EquipWeapon(Weapon weapon)
         {
             currentWeapon = weapon;
@@ -55,8 +56,8 @@ namespace BlackCat.Combat {
             if (combatTarget == null) return false;
             if (combatTarget == this.gameObject) return false;
 
-            Health targetToTest = combatTarget.GetComponent<Health>();            
-            return targetToTest != null && !targetToTest.IsDead();
+            Health verifytarget = combatTarget.GetComponent<Health>();            
+            return verifytarget != null && !verifytarget.IsDead();
             
         }
 
@@ -64,8 +65,16 @@ namespace BlackCat.Combat {
         // Animation Event Hit()
         void Hit()
         {
-            if (target == null) return;
-            target.TakeDamage(currentWeapon.GetDamage());
+            if (target == null)  return;
+
+            if (currentWeapon.HasProjectile())
+            {
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+            }
+            else
+            {
+                target.TakeDamage(currentWeapon.GetDamage());
+            }
         }
 
         void Shoot()
