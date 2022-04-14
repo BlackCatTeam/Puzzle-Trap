@@ -1,15 +1,17 @@
 using BlackCat.Core;
 using BlackCat.Core.Interfaces;
 using BlackCat.Movement;
+using BlackCat.Saving;
 using UnityEngine;
 
 namespace BlackCat.Combat {
-	public class Fighter : MonoBehaviour , IAction
+	public class Fighter : MonoBehaviour , IAction , ISaveable
     {             
         [SerializeField] Health target;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] Weapon defaultWeapon = null;
+        [SerializeField] string defaultWeaponName = "Unarmed";
 
         Weapon currentWeapon;
         private Mover mover;        
@@ -18,9 +20,9 @@ namespace BlackCat.Combat {
 
         private void Start()
         {
-            
-             mover = GetComponent<Mover>();
-            EquipWeapon(defaultWeapon);
+            mover = GetComponent<Mover>();
+            if (currentWeapon == null)
+                EquipWeapon(defaultWeapon);
         }
         private void Update()
         {
@@ -65,7 +67,7 @@ namespace BlackCat.Combat {
         // Animation Event Hit()
         void Hit()
         {
-            if (target == null)  return;
+            if (target == null) return;
 
             if (currentWeapon.HasProjectile())
             {
@@ -122,8 +124,19 @@ namespace BlackCat.Combat {
         {
             GetComponent<ActionScheduler>().StartAction(this);
             this.target = target.GetComponent<Health>();
-
         }
 
-	}
+        public object CaptureState()
+        {
+            return currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+
+            string weaponName = (string)state;
+            Weapon weapon = Resources.Load<Weapon>(weaponName);
+            EquipWeapon(weapon);
+        }
+    }
 }

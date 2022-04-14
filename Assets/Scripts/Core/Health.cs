@@ -29,7 +29,7 @@ namespace BlackCat.Core {
 				GetComponent<ActionScheduler>().CancelCurrentAction();
 			}
         }
-
+		
 		public object CaptureState()
 		{
 			return healthPoints;
