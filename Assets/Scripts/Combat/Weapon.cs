@@ -1,3 +1,4 @@
+using BlackCat.Attributes;
 using BlackCat.Core;
 using System;
 using UnityEngine;
@@ -64,10 +65,10 @@ namespace BlackCat.Combat
             return projectile != null;
         }
 
-        public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target)
+        public void LaunchProjectile(GameObject instigator,Transform rightHand, Transform leftHand, Health target)
         {
             Projectile projectileInstance = Instantiate(projectile, GetHandTransform(rightHand, leftHand).position, Quaternion.identity);
-            projectileInstance.SetTarget(target, damage);
+            projectileInstance.SetTarget(instigator, target, damage);
         }
 
         public float GetDamage() { return this.damage; }

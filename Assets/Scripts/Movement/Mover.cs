@@ -1,3 +1,4 @@
+using BlackCat.Attributes;
 using BlackCat.Core;
 using BlackCat.Core.Interfaces;
 using BlackCat.Saving;

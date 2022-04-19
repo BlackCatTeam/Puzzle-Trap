@@ -1,3 +1,4 @@
+using BlackCat.Attributes;
 using BlackCat.Core;
 using BlackCat.Core.Interfaces;
 using BlackCat.Movement;
@@ -24,6 +25,8 @@ namespace BlackCat.Combat {
             if (currentWeapon == null)
                 EquipWeapon(defaultWeapon);
         }
+
+        
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
@@ -47,7 +50,10 @@ namespace BlackCat.Combat {
             }
 
         }
-
+        public Health GetActualTarget()
+        {
+            return target;
+        }
         public void EquipWeapon(Weapon weapon)
         {
             currentWeapon = weapon;
@@ -71,11 +77,11 @@ namespace BlackCat.Combat {
 
             if (currentWeapon.HasProjectile())
             {
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+                currentWeapon.LaunchProjectile(gameObject, rightHandTransform, leftHandTransform, target);
             }
             else
             {
-                target.TakeDamage(currentWeapon.GetDamage());
+                target.TakeDamage(gameObject,currentWeapon.GetDamage());
             }
         }
 

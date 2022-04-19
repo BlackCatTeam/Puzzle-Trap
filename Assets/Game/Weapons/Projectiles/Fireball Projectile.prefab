@@ -4910,7 +4910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   baseProjectileDamage: 0
-  IsRoaming: 1
+  IsRoaming: 0
   hitEffect: {fileID: 2099861707696136129, guid: a1484db2891cdce4fbbfe61a2278bc8c, type: 3}
   maxLifeTime: 3
   lifeAfterImpact: 0.1

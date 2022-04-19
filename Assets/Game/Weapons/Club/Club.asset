@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5431c5f5d08358f4aa4b8ee1c1bd99f5, type: 3}
-  m_Name: Fireball
+  m_Name: Club
   m_EditorClassIdentifier: 
-  animatorOverride: {fileID: 22100000, guid: 05552dab8040c99438f72d9def2e9482, type: 2}
-  equippedPrefab: {fileID: 2598272802771496251, guid: 46216640c48b3fa44adea77f4c0fac87, type: 3}
-  damage: 30
-  range: 20
+  animatorOverride: {fileID: 22100000, guid: 98f375517a984a34885a323d782a3be3, type: 2}
+  equippedPrefab: {fileID: 5917564131344440791, guid: 1c87c117e167c6a4aae52737a783b129, type: 3}
+  damage: 15
+  range: 1
   timeBetweenAttacks: 1
-  isRightHanded: 0
-  projectile: {fileID: 2812359184209783503, guid: 0159b403566172e4c9d162d27907ed10, type: 3}
+  isRightHanded: 1
+  projectile: {fileID: 0}

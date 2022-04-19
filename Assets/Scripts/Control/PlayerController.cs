@@ -1,3 +1,4 @@
+using BlackCat.Attributes;
 using BlackCat.Combat;
 using BlackCat.Core;
 using BlackCat.Movement;

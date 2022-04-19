@@ -1,3 +1,4 @@
+using BlackCat.Attributes;
 using BlackCat.Core;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace BlackCat.Combat {
         [SerializeField] float maxLifeTime = 3f;
         [SerializeField] float lifeAfterImpact = 2f;
         [SerializeField] GameObject[] destroyOnHit;
+        GameObject instigator;
         private void Start()
         {
             LookAtTarget();
@@ -35,9 +37,10 @@ namespace BlackCat.Combat {
         }
         
 
-        public void SetTarget(Health target, float damage)
+        public void SetTarget(GameObject instigator ,Health target, float damage)
         {
             this.target = target;
+            this.instigator = instigator;
             this.damage = damage + baseProjectileDamage;
             
         }
@@ -55,7 +58,7 @@ namespace BlackCat.Combat {
         {
             speed = 0f;
 
-            _target.TakeDamage(damage);
+            _target.TakeDamage(instigator,damage);
             if (hitEffect != null)
             {
                 Instantiate(hitEffect, GetAimLocation(),transform.rotation);
