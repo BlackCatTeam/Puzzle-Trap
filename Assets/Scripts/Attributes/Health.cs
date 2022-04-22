@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace BlackCat.Attributes {	
 	public class Health : MonoBehaviour , ISaveable
@@ -13,13 +14,25 @@ namespace BlackCat.Attributes {
 		[SerializeField] float regenerationPorcentage = 70f;
 		[Min(0)]
 		LazyValue<float> healthPoints;
+
+		[SerializeField] TakeDamageEvent takeDamage;
+		
+		[Serializable]
+		public class TakeDamageEvent : UnityEvent<float> 
+		{
+		}
+
 		bool isDead = false;
         private void Awake()
         {
 			healthPoints = new LazyValue<float>(GetInitialHealth);
 
 		}
-		private float GetInitialHealth()
+        private void Start()
+        {
+			healthPoints.ForceInit();
+        }
+        private float GetInitialHealth()
         {
 			return GetComponent<BaseStats>().GetStat(Stat.Health);
 		}
@@ -39,8 +52,8 @@ namespace BlackCat.Attributes {
 
         public void TakeDamage(GameObject instigator, float damage)
         {
-			print(gameObject.name + "took damage " + damage);
 			healthPoints.value = Mathf.Max(healthPoints.value - damage, 0);
+			takeDamage.Invoke(damage);
 			VerifyDeath(instigator);
 		}
 
@@ -77,7 +90,11 @@ namespace BlackCat.Attributes {
         public float GetHealthPercentage()
         {
 			if (healthPoints.value < 0) return 0f;
-			return (100 * healthPoints.value) / GetComponent<BaseStats>().GetStat(Stat.Health); ;
+			return (100 * GetFraction());
+		}
+		public float GetFraction()
+        {
+			return healthPoints.value / GetComponent<BaseStats>().GetStat(Stat.Health);
 		}
 		public float GetHealth()
         {

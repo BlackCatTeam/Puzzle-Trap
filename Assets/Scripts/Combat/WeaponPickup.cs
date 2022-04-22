@@ -1,18 +1,15 @@
+using BlackCat.Control;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace BlackCat.Combat {
-	public class WeaponPickup : MonoBehaviour
+	public class WeaponPickup : MonoBehaviour , IRaycastable
 	{
 		[SerializeField]Weapon weapon = null;
 		[SerializeField] float respawnTime = 5f;
-		// Start is called before the first frame update
-		void Start()
-		{
-			
-		}
+
 	
 		// Update is called once per frame
 		void Update()
@@ -24,13 +21,17 @@ namespace BlackCat.Combat {
         {
             if (other.gameObject.tag == "Player")
             {
-				other.GetComponent<Fighter>().EquipWeapon(weapon);
-
-				StartCoroutine(HideForSeconds(5f));
+                Pickup(other.GetComponent<Fighter>());
             }
         }
 
-		private IEnumerator HideForSeconds(float seconds)
+        private void Pickup(Fighter fighter)
+        {
+            fighter.EquipWeapon(weapon);
+            StartCoroutine(HideForSeconds(5f));
+        }
+
+        private IEnumerator HideForSeconds(float seconds)
         {
 			ShowPickup(false);
 			yield return new WaitForSeconds(seconds);
@@ -44,6 +45,20 @@ namespace BlackCat.Combat {
             {
 				child.gameObject.SetActive(shouldShow);
             }
-		}        
+		}
+
+        public bool HandleRayCast(PlayerController callingController)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Pickup(callingController.GetComponent<Fighter>());
+            }
+            return true;
+        }
+
+        public CursorType GetCursorType()
+        {
+            return CursorType.Pickup;
+        }
     }
 }

@@ -12,6 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b510e8074f4dc74c980675c94612b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxNavMeshProjectionDistance: 1
+  maxNavPathLength: 20
+  cursorMappings:
+  - type: 0
+    texture: {fileID: 2800000, guid: 21628736160fcc9488493401da3ef621, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 1
+    texture: {fileID: 2800000, guid: 2d18e23e3ce249b4489b8bcdd02d3f48, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 2
+    texture: {fileID: 2800000, guid: 8859fce41c5d0a148ad0b7eebfca7fe9, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 3
+    texture: {fileID: 2800000, guid: fe2443101ded6f544b32f8dc8690c367, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 4
+    texture: {fileID: 2800000, guid: f8c873f1e53e83f4aabf342d6be1dfc3, type: 3}
+    hotspot: {x: 0, y: 0}
 --- !u!114 &7271282053176740004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3046678974594259505, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.31
+      value: 32.7
       objectReference: {fileID: 0}
     - target: {fileID: 3046678974594259505, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -126,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3046678974594259505, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.43
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 3046678974594259505, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -164,9 +182,21 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 126
       objectReference: {fileID: 0}
+    - target: {fileID: 5053649990412862628, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053649990412862628, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.341
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367525145306131491, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: levelUpEffect
+      value: 
+      objectReference: {fileID: 2306670438448419873, guid: a2f264218161eb0498fd8e3f2a54b01c, type: 3}
     - target: {fileID: 8367525145306131491, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: startingLevel
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8367525145306131491, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: characterClass
