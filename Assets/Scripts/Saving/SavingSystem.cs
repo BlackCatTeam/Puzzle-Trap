@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -18,17 +19,30 @@ namespace BlackCat.Saving {
 
 		public IEnumerator LoadLastScene(string saveFile)
 		{
-			Dictionary<string, object> state = LoadFile(saveFile);
-			if (state.ContainsKey("lastSceneBuildIndex"))
+            Dictionary<string, object> state = LoadFile(saveFile);
+            int buildIndex = SceneManager.GetActiveScene().buildIndex;
+
+            if (state.ContainsKey("lastSceneBuildIndex"))
 			{
-				int buildIndex = (int)state["lastSceneBuildIndex"];
-				if (buildIndex != SceneManager.GetActiveScene().buildIndex)
-				{
-					yield return SceneManager.LoadSceneAsync(buildIndex);
-				}
+				buildIndex = (int)state["lastSceneBuildIndex"];												
 			}
-			RestoreState(state);
+            yield return SceneManager.LoadSceneAsync(buildIndex);
+            RestoreState(state);
 		}
+
+        public void Delete(string defaultSaveFile)
+        {
+            string pathFile = GetPathFromSaveFile(defaultSaveFile);
+            if (File.Exists(pathFile))
+            {            
+                File.Delete(pathFile);
+                print("File Deleted");
+            }
+            else
+            {
+                print("Nothing to Delete");
+            }
+        }
 
         public void Load(string saveFile)
         {

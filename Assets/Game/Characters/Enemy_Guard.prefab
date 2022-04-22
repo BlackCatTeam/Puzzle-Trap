@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8367525145306131491, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: startingLevel
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8460883947758829252, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: weapon

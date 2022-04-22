@@ -14,7 +14,7 @@ namespace BlackCat.Control
         Fighter FighterScript;
         Health healthScript;
         
-        void Start()
+        void Awake()
         {
             MoverScript = this.GetComponent<Mover>();
             FighterScript = this.GetComponent<Fighter>();

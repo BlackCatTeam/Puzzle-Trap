@@ -11,6 +11,7 @@ namespace BlackCat.Combat
         [SerializeField] private AnimatorOverrideController animatorOverride = null;
         [SerializeField] private GameObject equippedPrefab = null;
         [SerializeField] private float damage = 0f;
+        [SerializeField] private float percentageDamageBonus = 0f;
         [SerializeField] private float range = 0f;
         [SerializeField] private float timeBetweenAttacks = 1f;
         [SerializeField] private bool isRightHanded = true;
@@ -65,13 +66,14 @@ namespace BlackCat.Combat
             return projectile != null;
         }
 
-        public void LaunchProjectile(GameObject instigator,Transform rightHand, Transform leftHand, Health target)
+        public void LaunchProjectile(GameObject instigator,Transform rightHand, Transform leftHand, Health target,float calculatedDamage)
         {
             Projectile projectileInstance = Instantiate(projectile, GetHandTransform(rightHand, leftHand).position, Quaternion.identity);
-            projectileInstance.SetTarget(instigator, target, damage);
+            projectileInstance.SetTarget(instigator, target, calculatedDamage);
         }
 
         public float GetDamage() { return this.damage; }
+        public float getPercentageBonus() { return this.percentageDamageBonus; }
         public float GetRange() { return this.range; }
         public float GetTimeBetweenAttacks() { return this.timeBetweenAttacks; }
         

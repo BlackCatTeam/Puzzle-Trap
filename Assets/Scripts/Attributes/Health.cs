@@ -1,6 +1,7 @@
 using BlackCat.Core;
 using BlackCat.Saving;
 using BlackCat.Stats;
+using BlackCat.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,18 +10,37 @@ using UnityEngine;
 namespace BlackCat.Attributes {	
 	public class Health : MonoBehaviour , ISaveable
 	{
-		[SerializeField]
+		[SerializeField] float regenerationPorcentage = 70f;
 		[Min(0)]
-		float healthPoints = 100f;
+		LazyValue<float> healthPoints;
 		bool isDead = false;
-
-        private void Start()
+        private void Awake()
         {
-			healthPoints = GetComponent<BaseStats>().GetHealth();
+			healthPoints = new LazyValue<float>(GetInitialHealth);
+
+		}
+		private float GetInitialHealth()
+        {
+			return GetComponent<BaseStats>().GetStat(Stat.Health);
+		}
+        private void OnEnable()
+        {
+			GetComponent<BaseStats>().OnLevelUp += RegenerateHealth;
+		}
+        private void OnDisable()
+        {
+            GetComponent<BaseStats>().OnLevelUp -= RegenerateHealth;
+		}
+        private void RegenerateHealth()
+        {
+			float regenHealthPoints = GetComponent<BaseStats>().GetStat(Stat.Health) * (regenerationPorcentage / 100);
+			healthPoints.value = Mathf.Max(healthPoints.value, regenHealthPoints);
         }
+
         public void TakeDamage(GameObject instigator, float damage)
         {
-			healthPoints = Mathf.Max(healthPoints - damage, 0);
+			print(gameObject.name + "took damage " + damage);
+			healthPoints.value = Mathf.Max(healthPoints.value - damage, 0);
 			VerifyDeath(instigator);
 		}
 
@@ -30,7 +50,7 @@ namespace BlackCat.Attributes {
         {
 			if (IsDead()) return;
 
-			if (healthPoints <= 0f)
+			if (healthPoints.value <= 0f)
             {
                 Die();
 				if (instigator != null) 
@@ -43,8 +63,9 @@ namespace BlackCat.Attributes {
 			Experience experience = instigator.GetComponent<Experience>();
 			if (experience == null) return;
 
-			experience.GainExperience(GetComponent<BaseStats>().GetExperienceReward());
+			experience.GainExperience(GetComponent<BaseStats>().GetStat(Stat.ExperienceReward));
         }
+
 
         private void Die()
         {
@@ -53,26 +74,27 @@ namespace BlackCat.Attributes {
             GetComponent<ActionScheduler>().CancelCurrentAction();
         }
 
-        public float GetPercentage()
+        public float GetHealthPercentage()
         {
-			return (100 * healthPoints) / GetComponent<BaseStats>().GetHealth(); ;
+			if (healthPoints.value < 0) return 0f;
+			return (100 * healthPoints.value) / GetComponent<BaseStats>().GetStat(Stat.Health); ;
 		}
 		public float GetHealth()
         {
-			return this.healthPoints;
+			return this.healthPoints.value;
         }
 		public float GetMaxHealth()
         {
-			return GetComponent<BaseStats>().GetHealth();
+			return GetComponent<BaseStats>().GetStat(Stat.Health);
 		}
 		public object CaptureState()
 		{
-			return healthPoints;
+			return healthPoints.value;
 		}
 
         public void RestoreState(object state)
         {
-			this.healthPoints = (float)state;
+			this.healthPoints.value = (float)state;
 			VerifyDeath(null);
 		}
     }

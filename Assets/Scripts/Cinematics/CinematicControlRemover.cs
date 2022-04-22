@@ -10,17 +10,26 @@ namespace BlackCat.Cinematics {
 	{
         PlayableDirector playableDirector;
         GameObject player;
-        private void Start()
+        private void Awake()
         {
             playableDirector = GetComponent<PlayableDirector>();            
-            playableDirector.stopped += EnableControl;
-            playableDirector.played += DisableControl;
+ 
         }
         private GameObject GetPlayer()
         {
             if (this.player == null)
                 this.player = GameObject.FindWithTag("Player");
             return this.player;
+        }
+        private void OnDisable()
+        {
+            playableDirector.stopped -= EnableControl;
+            playableDirector.played  -= DisableControl;
+        }
+        private void OnEnable()
+        {
+            playableDirector.stopped += EnableControl;
+            playableDirector.played += DisableControl;
         }
         void DisableControl(PlayableDirector pd)
         {

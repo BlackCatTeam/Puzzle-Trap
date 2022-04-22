@@ -2,6 +2,7 @@ using BlackCat.Attributes;
 using BlackCat.Combat;
 using BlackCat.Core;
 using BlackCat.Movement;
+using BlackCat.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace BlackCat.Control {
 
 
  
-        Vector3 guardPosition;
+        LazyValue<Vector3> guardPosition;
         [SerializeField]
         float timePauseBetweenWaypoint = 3f;
         float timeSpendInWaypoint = Mathf.Infinity;
@@ -42,14 +43,26 @@ namespace BlackCat.Control {
         float chaseSpeedFraction = 0.4f;
         NavMeshAgent navMeshAgent;
 
-        private void Start()
-        {            
+        private void Awake()
+        {
             player = GameObject.FindWithTag("Player");
             fighterScript = this.GetComponent<Fighter>();
             health = this.GetComponent<Health>();
-            moveScript = this.GetComponent<Mover>();
-            guardPosition = this.transform.position;
+            moveScript = this.GetComponent<Mover>(); 
             navMeshAgent = this.GetComponent<NavMeshAgent>();
+
+            guardPosition = new LazyValue<Vector3>(GetGuardPosition);
+            
+        }
+
+        private Vector3 GetGuardPosition()
+        {
+            return  this.transform.position;
+        }
+
+        private void Start()
+        {
+            guardPosition.ForceInit();
         }
 
         private void Update()
@@ -84,7 +97,7 @@ namespace BlackCat.Control {
 
         private void GuardBehavior()
         {
-            Vector3 nextPosition = guardPosition;
+            Vector3 nextPosition = guardPosition.value;
             if (patrolPath != null)
             {
                 if (AtWaypoint())

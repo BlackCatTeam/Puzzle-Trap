@@ -5,14 +5,14 @@ using BlackCat.Saving;
 using UnityEngine;
 using UnityEngine.AI;
 namespace BlackCat.Movement
-{    
-    public class Mover : MonoBehaviour, IAction,ISaveable
+{
+    public class Mover : MonoBehaviour, IAction, ISaveable
     {
         private NavMeshAgent navMeshAgent;
         Health health;
         [SerializeField]
         float maxSpeed = 6f;
-        void Start()
+        void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
             health = GetComponent<Health>();
@@ -20,7 +20,7 @@ namespace BlackCat.Movement
 
         void Update()
         {
-            navMeshAgent.enabled = !health.IsDead();           
+            navMeshAgent.enabled = !health.IsDead();
             UpdateSpeedAnimator();
         }
 
@@ -30,10 +30,10 @@ namespace BlackCat.Movement
         {
             navMeshAgent.isStopped = true;
         }
-        public void StartMoveAction(Vector3 destination,float speedFraction)
+        public void StartMoveAction(Vector3 destination, float speedFraction)
         {
             GetComponent<ActionScheduler>().StartAction(this);
-            this.MoveTo(destination,speedFraction);
+            this.MoveTo(destination, speedFraction);
         }
         public void MoveTo(Vector3 destination, float speedFraction)
         {
@@ -50,7 +50,7 @@ namespace BlackCat.Movement
 
         public object CaptureState()
         {
-           return new SerializableVector3(transform.position);
+            return new SerializableVector3(transform.position);
         }
 
         public void RestoreState(object state)
@@ -58,6 +58,7 @@ namespace BlackCat.Movement
             GetComponent<NavMeshAgent>().enabled = false;
             this.transform.position = ((SerializableVector3)state).ToVector3();
             GetComponent<NavMeshAgent>().enabled = true;
-            GetComponent<ActionScheduler>().CancelCurrentAction();        }
+            GetComponent<ActionScheduler>().CancelCurrentAction();
         }
     }
+}

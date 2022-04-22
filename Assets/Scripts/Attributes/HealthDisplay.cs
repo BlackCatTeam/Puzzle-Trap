@@ -16,7 +16,7 @@ namespace BlackCat.Attributes {
         private void Update()
         {
 
-            GetComponent<Text>().text = String.Format("{0:0}%",health.GetPercentage());
+            GetComponent<Text>().text = $"{health.GetHealth().ToString()} / {health.GetMaxHealth()}";
         }
     }
 }

@@ -3,10 +3,14 @@ using BlackCat.Core;
 using BlackCat.Core.Interfaces;
 using BlackCat.Movement;
 using BlackCat.Saving;
+using BlackCat.Stats;
+using BlackCat.Utils;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace BlackCat.Combat {
-	public class Fighter : MonoBehaviour , IAction , ISaveable
+	public class Fighter : MonoBehaviour , IAction , ISaveable, IModifierProvider
     {             
         [SerializeField] Health target;
         [SerializeField] Transform rightHandTransform = null;
@@ -14,16 +18,21 @@ namespace BlackCat.Combat {
         [SerializeField] Weapon defaultWeapon = null;
         [SerializeField] string defaultWeaponName = "Unarmed";
 
-        Weapon currentWeapon;
+        LazyValue<Weapon> currentWeapon;
         private Mover mover;        
         float timeSinceLastAttack = Mathf.Infinity;
-        
+
+        private void Awake()
+        {
+            mover = GetComponent<Mover>();
+            currentWeapon = new LazyValue<Weapon>(SetupDefaultWeapon);
+        }
+
+
 
         private void Start()
         {
-            mover = GetComponent<Mover>();
-            if (currentWeapon == null)
-                EquipWeapon(defaultWeapon);
+            currentWeapon.ForceInit();
         }
 
         
@@ -54,11 +63,23 @@ namespace BlackCat.Combat {
         {
             return target;
         }
+        private Weapon SetupDefaultWeapon()
+        {
+            AttachWeapon(defaultWeapon);
+            return defaultWeapon;
+        }
         public void EquipWeapon(Weapon weapon)
         {
-            currentWeapon = weapon;
-            weapon.Spawn(rightHandTransform,leftHandTransform, GetComponent<Animator>());
+            currentWeapon.value = weapon;                
+            AttachWeapon(weapon);
         }
+
+        private void AttachWeapon(Weapon weapon)
+        {
+            if (currentWeapon == null) return;
+            weapon.Spawn(rightHandTransform, leftHandTransform, GetComponent<Animator>());
+        }
+
         public bool CanAttack(GameObject combatTarget)
         {
             if (combatTarget == null) return false;
@@ -75,13 +96,14 @@ namespace BlackCat.Combat {
         {
             if (target == null) return;
 
-            if (currentWeapon.HasProjectile())
+            float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
+            if (currentWeapon.value.HasProjectile())
             {
-                currentWeapon.LaunchProjectile(gameObject, rightHandTransform, leftHandTransform, target);
+                currentWeapon.value.LaunchProjectile(gameObject, rightHandTransform, leftHandTransform, target, damage);
             }
             else
             {
-                target.TakeDamage(gameObject,currentWeapon.GetDamage());
+                target.TakeDamage(gameObject,damage);
             }
         }
 
@@ -92,7 +114,7 @@ namespace BlackCat.Combat {
         private void AttackBehavior()
         {
             this.transform.LookAt(target.transform);
-            if (timeSinceLastAttack > currentWeapon.GetTimeBetweenAttacks() )
+            if (timeSinceLastAttack > currentWeapon.value.GetTimeBetweenAttacks() )
             {
                 TriggerAttack();
                 timeSinceLastAttack = 0f;
@@ -109,7 +131,7 @@ namespace BlackCat.Combat {
 
         private bool GetIsInRange()
         {
-            return Vector3.Distance(this.transform.position, target.transform.position) <= currentWeapon.GetRange();
+            return Vector3.Distance(this.transform.position, target.transform.position) <= currentWeapon.value.GetRange();
         }
 
         public void Cancel()
@@ -134,7 +156,7 @@ namespace BlackCat.Combat {
 
         public object CaptureState()
         {
-            return currentWeapon.name;
+            return currentWeapon.value.name;
         }
 
         public void RestoreState(object state)
@@ -143,6 +165,14 @@ namespace BlackCat.Combat {
             string weaponName = (string)state;
             Weapon weapon = Resources.Load<Weapon>(weaponName);
             EquipWeapon(weapon);
+        }
+
+        public IEnumerable<(float valueBonus, float percentageBonus)> GetAdditiveModifier(Stat stat)
+        {
+            if (stat == Stat.Damage)
+            {
+                yield return (currentWeapon.value.GetDamage(),currentWeapon.value.getPercentageBonus());
+            }
         }
     }
 }
