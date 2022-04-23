@@ -1,6 +1,7 @@
 using BlackCat.Attributes;
 using BlackCat.Core;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace BlackCat.Combat {
     public class Projectile : MonoBehaviour
@@ -15,6 +16,8 @@ namespace BlackCat.Combat {
         [SerializeField] float lifeAfterImpact = 2f;
         [SerializeField] GameObject[] destroyOnHit;
         GameObject instigator;
+        [SerializeField] UnityEvent onHit;
+        [SerializeField] UnityEvent onLaunch;
         private void Start()
         {
             LookAtTarget();
@@ -57,12 +60,12 @@ namespace BlackCat.Combat {
         private void TakeDamage(Health _target)
         {
             speed = 0f;
-
             _target.TakeDamage(instigator,damage);
             if (hitEffect != null)
             {
                 Instantiate(hitEffect, GetAimLocation(),transform.rotation);
             }
+            
             DestroyProjectile();
         }
 
@@ -70,6 +73,7 @@ namespace BlackCat.Combat {
         {
             if (target.IsDead()) 
             {
+                onHit.Invoke();
                 Health newTarget = other.gameObject.GetComponent<Health>();
                 if (newTarget != null && !newTarget.IsDead())
                 {

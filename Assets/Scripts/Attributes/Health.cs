@@ -16,11 +16,14 @@ namespace BlackCat.Attributes {
 		LazyValue<float> healthPoints;
 
 		[SerializeField] TakeDamageEvent takeDamage;
-		
+		[SerializeField] UnityEvent onDie;
+		[SerializeField] UnityEvent onHeal;
 		[Serializable]
 		public class TakeDamageEvent : UnityEvent<float> 
 		{
 		}
+
+
 
 		bool isDead = false;
         private void Awake()
@@ -48,6 +51,7 @@ namespace BlackCat.Attributes {
         {
 			float regenHealthPoints = GetComponent<BaseStats>().GetStat(Stat.Health) * (regenerationPorcentage / 100);
 			healthPoints.value = Mathf.Max(healthPoints.value, regenHealthPoints);
+			onHeal.Invoke();
         }
 
         public void TakeDamage(GameObject instigator, float damage)
@@ -65,7 +69,8 @@ namespace BlackCat.Attributes {
 
 			if (healthPoints.value <= 0f)
             {
-                Die();
+				onDie.Invoke();
+				Die();
 				if (instigator != null) 
 					AwardExperiece(instigator);
             }

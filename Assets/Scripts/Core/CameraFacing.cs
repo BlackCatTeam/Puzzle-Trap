@@ -5,7 +5,7 @@ using UnityEngine;
 namespace cripts.Core {
 	public class CameraFacing : MonoBehaviour
 	{
-		void Update()
+		void LateUpdate()
 		{
 			transform.forward = Camera.main.transform.forward;
 		}

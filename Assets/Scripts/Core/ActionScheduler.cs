@@ -2,8 +2,7 @@ using BlackCat.Core.Interfaces;
 using UnityEngine;
 
 namespace BlackCat.Core {
-
-    public class ActionScheduler : MonoBehaviour
+    public class ActionScheduler : MonoBehaviour 
     {
         IAction currentAction;
         public void StartAction(IAction action)

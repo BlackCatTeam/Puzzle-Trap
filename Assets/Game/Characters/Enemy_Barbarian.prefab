@@ -227,9 +227,33 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 126
       objectReference: {fileID: 0}
+    - target: {fileID: 4600255143685846814, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: audiosToRandomize.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600255143685846814, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: audiosToRandomize.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0a490d2ac2e526246ab488aed902f6f1, type: 3}
+    - target: {fileID: 4600255143685846814, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: audiosToRandomize.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 677a588867b19234ba2e66c09d82ba28, type: 3}
+    - target: {fileID: 4600255143685846814, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: audiosToRandomize.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: cc33d42442263404f9c18723ddf25ef7, type: 3}
+    - target: {fileID: 5066717167192208617, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: maxPitchValue
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5066717167192208617, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: minPitchValue
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 6858997743405515102, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6858997743405515102, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -259,6 +283,54 @@ PrefabInstance:
       propertyPath: healthPoints
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6012760560797750470}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 3095774058630321969}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BlackCat.Core.RandomizeAudioClips, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: BlackCat.Core.RandomizeAudioClips, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2247816789034928288, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
@@ -281,5 +353,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 471789b853eda574d98a8f75ccb67e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3095774058630321969 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5066717167192208617, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+  m_PrefabInstance: {fileID: 7829224765970375640}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc64b33e049d7645b7d7ed032f09d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6012760560797750470 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4600255143685846814, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+  m_PrefabInstance: {fileID: 7829224765970375640}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc64b33e049d7645b7d7ed032f09d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

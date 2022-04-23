@@ -10,9 +10,11 @@ namespace BlackCat.Cinematics {
 	{
         PlayableDirector playableDirector;
         GameObject player;
+        ControlManager disableControl;
         private void Awake()
         {
-            playableDirector = GetComponent<PlayableDirector>();            
+            playableDirector = GetComponent<PlayableDirector>();
+            disableControl = FindObjectOfType<ControlManager>();
  
         }
         private GameObject GetPlayer()
@@ -23,23 +25,13 @@ namespace BlackCat.Cinematics {
         }
         private void OnDisable()
         {
-            playableDirector.stopped -= EnableControl;
-            playableDirector.played  -= DisableControl;
+            playableDirector.stopped -= disableControl.EnableAllControls;
+            playableDirector.played  -= disableControl.DisableAllControls;
         }
         private void OnEnable()
         {
-            playableDirector.stopped += EnableControl;
-            playableDirector.played += DisableControl;
-        }
-        void DisableControl(PlayableDirector pd)
-        {
-
-            GetPlayer().GetComponent<ActionScheduler>().CancelCurrentAction();
-            GetPlayer().GetComponent<PlayerController>().enabled = false;
-        }
-		void EnableControl(PlayableDirector pd)
-        {
-            GetPlayer().GetComponent<PlayerController>().enabled = true;
+            playableDirector.stopped += disableControl.EnableAllControls;
+            playableDirector.played += disableControl.DisableAllControls;
         }
 	}
 }
