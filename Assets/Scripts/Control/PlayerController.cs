@@ -16,6 +16,7 @@ namespace BlackCat.Control
         Fighter FighterScript;
         Health healthScript;
 
+
         [System.Serializable]
         struct CursorMapping
         {
@@ -24,8 +25,10 @@ namespace BlackCat.Control
             public Vector2 hotspot;
 
         }
+        [SerializeField] float playerSpeed = 1f;
+        [SerializeField] float raycastRadius = 1f;
         [SerializeField] float maxNavMeshProjectionDistance = 1f;
-        [SerializeField] float maxNavPathLength = 1f;
+
         [SerializeField] CursorMapping[] cursorMappings = null;
         void Awake()
         {
@@ -77,7 +80,7 @@ namespace BlackCat.Control
 
        private RaycastHit[] RaycastAllSorted()
         {
-            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(),raycastRadius);
             float[] distances = new float[hits.Length];
 
             for (int i = 0; i < hits.Length; i++)
@@ -121,17 +124,16 @@ namespace BlackCat.Control
         }
         private bool InteractWithMovement()
         {
-            RaycastHit hit;
             Vector3 target;
             bool hasHit = RaycastNavmesh(out target);
             if (hasHit)
             {
-                SetCursor(CursorType.Movement);
-
+                if (!this.MoverScript.CanMoveTo(target)) return false;
                 if (Input.GetMouseButton(0))
                 {
-                    this.MoverScript.StartMoveAction(target,1f);
+                    this.MoverScript.StartMoveAction(target, playerSpeed);
                 }
+                SetCursor(CursorType.Movement);
             }
             return hasHit;
         }
@@ -147,24 +149,12 @@ namespace BlackCat.Control
             if (!hasCastToNavmesh) return false;
 
             target = navMeshHit.position;
-            NavMeshPath path = new NavMeshPath();            
-            bool HasPath = NavMesh.CalculatePath(transform.position, target, NavMesh.AllAreas,path);
-            if (!HasPath) return false;
-            if (path.status != NavMeshPathStatus.PathComplete) return false;
-            if (GetPathLength(path) > maxNavPathLength) return false;
-            return true;
+
+            
+            return MoverScript.CanMoveTo(target);
         }
 
-        private float GetPathLength(NavMeshPath path)
-        {
-            float total = 0;
-            if (path.corners.Length < 2) return total;
-            for (int i = 0; i < path.corners.Length - 1; i++)
-            {
-                total += Vector3.Distance(path.corners[i],path.corners[i+1]);
-            }
-            return total;
-        }
+
 
         private Ray GetMouseRay()
         {

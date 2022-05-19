@@ -15,11 +15,21 @@ namespace BlackCat.Core {
 
         private void Start()
         {
-            audioSource = GetComponent<AudioSource>();
+            
 			AudioClip clip = RandomClip();
 			if (clip != null)
-				audioSource.clip = RandomClip();
-        }
+				GetAudioSource().clip = RandomClip();
+			RandomizeAudioPitch(minPitchValue, maxPitchValue);
+
+		}
+
+
+		AudioSource GetAudioSource()
+        {
+			if (audioSource == null)
+				audioSource = GetComponent<AudioSource>();
+			return audioSource;
+		}
         private AudioClip RandomClip()
 		{
 			if (audiosToRandomize.Length == 0) return null;
@@ -32,7 +42,7 @@ namespace BlackCat.Core {
 			System.Random random= new System.Random();
 			double sample = random.NextDouble();
 			double scaled = (sample * range) + min;
-			audioSource.pitch = (float)scaled;
+			GetAudioSource().pitch = (float)scaled;
 			return;
         }
 
@@ -40,9 +50,8 @@ namespace BlackCat.Core {
 		{
 			if (audiosToRandomize.Length == 0) return;
 
-			audioSource.clip = RandomClip();
-			RandomizeAudioPitch(minPitchValue,maxPitchValue);
-			audioSource.Play();
+			GetAudioSource().clip = RandomClip();			
+			GetAudioSource().Play();
 		}
 
 

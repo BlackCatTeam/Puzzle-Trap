@@ -8,6 +8,8 @@ namespace BlackCat.Control
     {
         GameObject player;
         NPCInRange npcInRange;
+
+        public bool IsDisable = false;
         private void Start()
         {
             npcInRange = GetPlayer().GetComponentInChildren<NPCInRange>();
@@ -19,45 +21,60 @@ namespace BlackCat.Control
             return player;
         }
 
+        public void DisableTargetControl(GameObject target) => DisableIA(target);
+
         public void DisablePlayerControl()
         {
 
             GetPlayer().GetComponent<ActionScheduler>().CancelCurrentAction();
             GetPlayer().GetComponent<PlayerController>().enabled = false;
+            IsDisable = true;
         }
         public void EnablePlayerControl()
         {
             GetPlayer().GetComponent<PlayerController>().enabled = true;
+            IsDisable = false;
         }
 
         public void DisableAllControls(PlayableDirector pd)
         {
             DisablePlayerControl();
-            var teste = npcInRange.GetNPCInRange();
-            foreach (GameObject npc in teste)
+            foreach (GameObject npc in npcInRange.GetNPCInRange())
             {
-                npc.GetComponent<ActionScheduler>().CancelCurrentAction();
+                DisableIA(npc);
+            }
+            IsDisable = true;
+        }
 
-                var IAController = npc.gameObject.GetComponent<AIController>();
-                if (IAController != null)
-                {
-                    IAController.enabled = false;
-                }
+        private void DisableIA(GameObject npc)
+        {
+            npc.GetComponent<ActionScheduler>().CancelCurrentAction();
+
+            var IAController = npc.gameObject.GetComponent<AIController>();
+            if (IAController != null)
+            {
+                IAController.enabled = false;
+            }
+        }
+        private void EnableIA(GameObject npc)
+        {
+            var AIController = npc.gameObject.GetComponent<AIController>();
+
+            if (AIController != null)
+            {
+                AIController.enabled = true;
             }
         }
         public void EnableAllControls(PlayableDirector pd)
         {
             EnablePlayerControl();
-            var teste = npcInRange.GetNPCInRange();
-            foreach (GameObject npc in teste)
+            foreach (GameObject npc in npcInRange.GetNPCInRange())
             {
-                var AIController = npc.gameObject.GetComponent<AIController>();
-                
-                if (AIController != null)
-                {
-                    AIController.enabled = true;
-                }
+                EnableIA(npc);
             }
+            IsDisable = false;
         }
+
+  
     }
 }

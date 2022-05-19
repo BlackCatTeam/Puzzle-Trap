@@ -1,3 +1,4 @@
+using BlackCat.Attributes;
 using BlackCat.Control;
 using System;
 using System.Collections;
@@ -7,9 +8,13 @@ using UnityEngine;
 namespace BlackCat.Combat {
 	public class WeaponPickup : MonoBehaviour , IRaycastable
 	{
-		[SerializeField]Weapon weapon = null;
+        [Header("Caso o Item seja equipado automaticamente")]
+        [SerializeField]WeaponConfig weapon = null;
 		[SerializeField] float respawnTime = 5f;
-
+        [Space(5)]
+        [Header("Caso o Item Restaure Vida ao ser pego")]
+        [SerializeField] bool isHealth = false;
+        [SerializeField] float healthToRestore = 0;
 	
 		// Update is called once per frame
 		void Update()
@@ -21,13 +26,21 @@ namespace BlackCat.Combat {
         {
             if (other.gameObject.tag == "Player")
             {
-                Pickup(other.GetComponent<Fighter>());
+                Pickup(other.gameObject);
             }
         }
 
-        private void Pickup(Fighter fighter)
+        private void Pickup(GameObject subject)
         {
-            fighter.EquipWeapon(weapon);
+            if (weapon != null)
+            {
+                subject.GetComponent<Fighter>().EquipWeapon(weapon);
+            }
+            if (isHealth)
+            {
+                subject.GetComponent<Health>().Heal(healthToRestore);
+            }
+            
             StartCoroutine(HideForSeconds(5f));
         }
 
@@ -51,7 +64,7 @@ namespace BlackCat.Combat {
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Pickup(callingController.GetComponent<Fighter>());
+                Pickup(callingController.gameObject);
             }
             return true;
         }

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Bow Red
   m_EditorClassIdentifier: 
   animatorOverride: {fileID: 22100000, guid: ec0024dcb153a804dacbf25b250adc02, type: 2}
-  equippedPrefab: {fileID: 5179385250637965986, guid: ef59aae4d1352fd4f8b895f307e791ad, type: 3}
-  damage: 10
+  equippedPrefab: {fileID: -5481713705352140667, guid: ef59aae4d1352fd4f8b895f307e791ad, type: 3}
+  damage: 5
+  percentageDamageBonus: 0
   range: 10
   timeBetweenAttacks: 1
   isRightHanded: 0

@@ -43,7 +43,14 @@ namespace BlackCat.Attributes {
         {
 			GetComponent<BaseStats>().OnLevelUp += RegenerateHealth;
 		}
-        private void OnDisable()
+
+        internal void Heal(float healthToRestore)
+        {
+			healthPoints.value = Mathf.Min(healthPoints.value +healthToRestore, GetMaxHealth());
+			onHeal.Invoke();
+		}
+
+		private void OnDisable()
         {
             GetComponent<BaseStats>().OnLevelUp -= RegenerateHealth;
 		}
@@ -69,14 +76,18 @@ namespace BlackCat.Attributes {
 
 			if (healthPoints.value <= 0f)
             {
-				onDie.Invoke();
+				
 				Die();
-				if (instigator != null) 
+				if (instigator != null)
+                {
+					onDie.Invoke();
 					AwardExperiece(instigator);
+				}
+					
             }
         }
 
-        private void AwardExperiece(GameObject instigator)
+		private void AwardExperiece(GameObject instigator)
         {
 			Experience experience = instigator.GetComponent<Experience>();
 			if (experience == null) return;

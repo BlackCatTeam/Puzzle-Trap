@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,8 +16,7 @@ namespace BlackCat.Attributes {
 
         private void Update()
         {
-
-            GetComponent<Text>().text = $"{health.GetHealth().ToString()} / {health.GetMaxHealth()}";
+            GetComponent<TextMeshProUGUI>().text = $"{health.GetHealth().ToString()} / {health.GetMaxHealth()}";
         }
     }
 }

@@ -18,7 +18,6 @@ namespace BlackCat.Attributes {
         {
             health = fighter.GetComponent<Fighter>().GetActualTarget();       
             GetComponent<Text>().text = health == null ? "N/A" : $"{health.GetHealth().ToString()} / {health.GetMaxHealth()}";
-
         }
     }
 }

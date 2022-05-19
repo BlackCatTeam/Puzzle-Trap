@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &6156676507132908403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5107367933056481773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ecde6c5c96066f468843dba8f6fcd0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chaseDistance: 5
-  patrolPath: {fileID: 0}
-  waypointTolerance: 1
-  timePauseBetweenWaypoint: 3
-  timeSuspicious: 3
-  patrolSpeedFraction: 0.2
-  chaseSpeedFraction: 0.4
 --- !u!1001 &2480381202338255329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -137,19 +118,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f75dd7d4ddcf294191d36912e3afd79, type: 3}
---- !u!4 &4465322187702339452 stripped
+--- !u!4 &4460568959562605588 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 655360660618669243, guid: 1f75dd7d4ddcf294191d36912e3afd79, type: 3}
+  m_CorrespondingSourceObject: {fileID: 650578859326377939, guid: 1f75dd7d4ddcf294191d36912e3afd79, type: 3}
   m_PrefabInstance: {fileID: 3810130855441722311}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &4460283504560340354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 650297237045352005, guid: 1f75dd7d4ddcf294191d36912e3afd79, type: 3}
-  m_PrefabInstance: {fileID: 3810130855441722311}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4465544147901302760 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 655416052043263023, guid: 1f75dd7d4ddcf294191d36912e3afd79, type: 3}
   m_PrefabInstance: {fileID: 3810130855441722311}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7829224765970375640
@@ -274,11 +250,11 @@ PrefabInstance:
     - target: {fileID: 8460883947758829252, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: leftHandTransform
       value: 
-      objectReference: {fileID: 4465322187702339452}
+      objectReference: {fileID: 4460568959562605588}
     - target: {fileID: 8460883947758829252, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: rightHandTransform
       value: 
-      objectReference: {fileID: 4465544147901302760}
+      objectReference: {fileID: 4460283504560340354}
     - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: healthPoints
       value: 10
@@ -286,6 +262,10 @@ PrefabInstance:
     - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -304,6 +284,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayAudio
       objectReference: {fileID: 0}
@@ -312,8 +296,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3095774058630321969}
     - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 6156676507132908403}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: PlayAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Aggravate
       objectReference: {fileID: 0}
     - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -324,11 +320,19 @@ PrefabInstance:
       value: BlackCat.Core.RandomizeAudioClips, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: BlackCat.Control.AIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218567997510282746, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -377,3 +381,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc64b33e049d7645b7d7ed032f09d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6156676507132908403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107367933056481773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecde6c5c96066f468843dba8f6fcd0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 5
+  patrolPath: {fileID: 0}
+  waypointTolerance: 1
+  timePauseBetweenWaypoint: 3
+  timeSuspicious: 3
+  patrolSpeedFraction: 0.2
+  chaseSpeedFraction: 0.4

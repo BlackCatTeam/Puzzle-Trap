@@ -560,7 +560,6 @@ namespace Cinemachine
 
             if (mPreviousFrameWasOverride)
             {
-                // Hack: Because we don't know whether blending in or out... grrr...
                 if (activeOverride.blend != null)
                 {
                     if (activeOverride.blend.BlendWeight < 0.5f)

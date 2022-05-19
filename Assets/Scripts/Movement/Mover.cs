@@ -12,6 +12,7 @@ namespace BlackCat.Movement
         Health health;
         [SerializeField]
         float maxSpeed = 6f;
+        [SerializeField] float maxNavPathLength = 1f;
         void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
@@ -28,15 +29,39 @@ namespace BlackCat.Movement
 
         public void Stop()
         {
-            navMeshAgent.isStopped = true;
+           // navMeshAgent.isStopped = true;
+           navMeshAgent.enabled = false;
+
         }
         public void StartMoveAction(Vector3 destination, float speedFraction)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             this.MoveTo(destination, speedFraction);
         }
+        public bool CanMoveTo(Vector3 destination)
+        {
+            NavMeshPath path = new NavMeshPath();
+            bool HasPath = NavMesh.CalculatePath(transform.position, destination, NavMesh.AllAreas, path);
+            if (!HasPath) return false;
+            if (path.status != NavMeshPathStatus.PathComplete) return false;
+            if (GetPathLength(path) > maxNavPathLength) return false;
+
+            return true;
+        }
+        private float GetPathLength(NavMeshPath path)
+        {
+            float total = 0;
+            if (path.corners.Length < 2) return total;
+            for (int i = 0; i < path.corners.Length - 1; i++)
+            {
+                total += Vector3.Distance(path.corners[i], path.corners[i + 1]);
+            }
+            return total;
+        }
         public void MoveTo(Vector3 destination, float speedFraction)
         {
+            navMeshAgent.enabled = true;
+
             navMeshAgent.destination = destination;
             navMeshAgent.speed = Mathf.Clamp01(speedFraction) * maxSpeed;
             navMeshAgent.isStopped = false;

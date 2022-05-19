@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 0
+  maxNavPathLength: 40
 --- !u!114 &978423341254032212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,7 +323,7 @@ MonoBehaviour:
   target: {fileID: 0}
   rightHandTransform: {fileID: 0}
   leftHandTransform: {fileID: 0}
-  defaultWeapon: {fileID: 0}
+  defaultWeaponConfig: {fileID: 0}
   defaultWeaponName: Unarmed
 --- !u!195 &3046678974594259507
 NavMeshAgent:

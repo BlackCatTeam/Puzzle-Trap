@@ -11,11 +11,11 @@ using UnityEngine.SceneManagement;
 namespace BlackCat.SceneManagement {
 	public class Portal : MonoBehaviour
 	{
-        ControlManager disableControls;
+        ControlManager controlManager;
 
         private void Start()
         {
-            disableControls = FindObjectOfType<ControlManager>(); 
+            controlManager = FindObjectOfType<ControlManager>(); 
         }
 
         [Serializable]
@@ -57,12 +57,12 @@ namespace BlackCat.SceneManagement {
             DontDestroyOnLoad(this.gameObject);
 
             Fader fader = FindObjectOfType<Fader>();
-            disableControls.DisablePlayerControl();
+            controlManager.DisablePlayerControl();
             yield return fader.FadeOut(fadeOutTime);
             SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
             savingWrapper.Save();
             yield return SceneManager.LoadSceneAsync((int)Scene);
-            disableControls.DisablePlayerControl();
+            controlManager.DisablePlayerControl();
 
             savingWrapper.Load();
             Portal otherPortal = GetOtherPortal();
@@ -72,7 +72,7 @@ namespace BlackCat.SceneManagement {
             yield return new WaitForSeconds(WaitFadeTime);
             
             fader.FadeIn(fadeInTime);
-            disableControls.EnablePlayerControl();
+            controlManager.EnablePlayerControl();
             Destroy(this.gameObject);
         }
 

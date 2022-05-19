@@ -6,6 +6,7 @@ namespace BlackCat.Stats
         Health,
         ExperienceReward,
         ExperienceToLevelUp,
-        Damage
+        Damage,
+        Mana
     }
 }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9211885167538508767}
+  - component: {fileID: 4105878596242759048}
   m_Layer: 0
   m_Name: Equipable Club
   m_TagString: Untagged
@@ -23,14 +24,26 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5917564131344440791}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.00000015553077, y: 0.000000104308064, z: -0.83044815, w: 0.55709594}
+  m_LocalPosition: {x: -0.00309, y: 0.00248, z: -0.0007}
   m_LocalScale: {x: 0.020088114, y: 0.020088114, z: 0.020088114}
   m_Children:
   - {fileID: 4306180898975912680}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -112.29}
+--- !u!114 &4105878596242759048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5917564131344440791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92090cbf84870e54a9ea8f6e7d889671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4306180898976303208
 PrefabInstance:
   m_ObjectHideFlags: 0

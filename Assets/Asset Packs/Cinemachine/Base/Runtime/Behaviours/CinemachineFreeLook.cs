@@ -555,7 +555,6 @@ namespace Cinemachine
                 if (i > 0)
                     mOrbitals[i].m_RecenterToTargetHeading.m_enabled = false;
 
-                // Hack to get SimpleFollow with heterogeneous dampings to work
                 if (m_BindingMode == CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp)
                     m_Rigs[i].SetStateRawPosition(State.RawPosition);
 

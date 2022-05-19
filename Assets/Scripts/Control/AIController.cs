@@ -23,9 +23,9 @@ namespace BlackCat.Control {
         [SerializeField]
         float waypointTolerance = 1f;
         int CurrentWaypointIndex = 0;
+        [SerializeField]
+        float shoutDistance = 5f;
 
-
- 
         LazyValue<Vector3> guardPosition;
         [SerializeField]
         float timePauseBetweenWaypoint = 3f;
@@ -34,7 +34,10 @@ namespace BlackCat.Control {
 
         [SerializeField]
         float timeSuspicious = 3f;
+        [SerializeField] 
+        float AgroCooldown = 5f;
         float timeSinceLastSawPlayer = Mathf.Infinity;
+        float timeSinceAggrevated = Mathf.Infinity;
         [SerializeField]
         [Range(0,1)]
         float patrolSpeedFraction = 0.2f;
@@ -55,11 +58,6 @@ namespace BlackCat.Control {
             
         }
 
-        private Vector3 GetGuardPosition()
-        {
-            return  this.transform.position;
-        }
-
         private void Start()
         {
             guardPosition.ForceInit();
@@ -67,12 +65,10 @@ namespace BlackCat.Control {
 
         private void Update()
         {
-            if (health.IsDead()) {return; }
+            if (health.IsDead()) { return; }
 
-            if (DistanceToPlayer() < chaseDistance && fighterScript.CanAttack(player))
+            if ((IsAggravate() && fighterScript.CanAttack(player)))
             {
-               
-                timeSinceLastSawPlayer = 0f;
                 AttackBehavior();
             }
             else if (timeSinceLastSawPlayer < timeSuspicious)
@@ -83,16 +79,54 @@ namespace BlackCat.Control {
             {
                 GuardBehavior();
             }
+            UpdateTimers();
+        }
+
+        private bool IsAggravate()
+        {
+            return DistanceToPlayer() < chaseDistance || timeSinceAggrevated < AgroCooldown;
+        }
+
+        private void UpdateTimers()
+        {
             timeSinceLastSawPlayer += Time.deltaTime;
-        } 
+            timeSinceAggrevated += Time.deltaTime;
+
+        }
+        public void Aggravate()
+        {
+            timeSinceAggrevated = 0;
+        }
+
+        private Vector3 GetGuardPosition()
+        {
+            return this.transform.position;
+        }
+
         private void SuspiciousBehavior()
         {
+            //TODO: Fazer ir até o ultimo lugar que viu o player
             GetComponent<ActionScheduler>().CancelCurrentAction();
         }
 
         private void AttackBehavior()
         {
+            timeSinceLastSawPlayer = 0f;
             fighterScript.Attack(player);
+
+            AggravateNearbyEnemies();
+        }
+
+        private void AggravateNearbyEnemies()
+        {
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, shoutDistance, Vector3.up, 0);
+            foreach(RaycastHit hit in hits)
+            {
+                AIController ai = hit.collider.GetComponent<AIController>();
+                if (ai == null) continue;
+                ai.Aggravate();
+            }
+
         }
 
         private void GuardBehavior()

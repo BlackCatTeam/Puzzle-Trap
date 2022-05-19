@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Club
   m_EditorClassIdentifier: 
   animatorOverride: {fileID: 22100000, guid: 98f375517a984a34885a323d782a3be3, type: 2}
-  equippedPrefab: {fileID: 5917564131344440791, guid: 1c87c117e167c6a4aae52737a783b129, type: 3}
+  equippedPrefab: {fileID: 4105878596242759048, guid: 1c87c117e167c6a4aae52737a783b129, type: 3}
   damage: 15
+  percentageDamageBonus: 0
   range: 1
   timeBetweenAttacks: 1
   isRightHanded: 1

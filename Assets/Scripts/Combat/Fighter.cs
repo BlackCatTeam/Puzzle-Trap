@@ -15,20 +15,21 @@ namespace BlackCat.Combat {
         [SerializeField] Health target;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
-        [SerializeField] Weapon defaultWeapon = null;
+        [SerializeField] WeaponConfig defaultWeaponConfig = null;
         [SerializeField] string defaultWeaponName = "Unarmed";
 
+        WeaponConfig currentWeaponConfig;
         LazyValue<Weapon> currentWeapon;
-        private Mover mover;        
+        private Mover mover;
+        private bool IsAttacking =false;
         float timeSinceLastAttack = Mathf.Infinity;
 
         private void Awake()
         {
             mover = GetComponent<Mover>();
+            currentWeaponConfig = defaultWeaponConfig;
             currentWeapon = new LazyValue<Weapon>(SetupDefaultWeapon);
         }
-
-
 
         private void Start()
         {
@@ -46,9 +47,9 @@ namespace BlackCat.Combat {
             // Cannot Attack Himself
             if (target == this) return;
 
+            
 
-
-            if (!GetIsInRange())
+            if (!GetIsInRange(target.transform) )
             {
                 mover.MoveTo(target.transform.position,1f);
             }
@@ -59,31 +60,33 @@ namespace BlackCat.Combat {
             }
 
         }
-        public Health GetActualTarget()
+
+        private Weapon SetupDefaultWeapon() => AttachWeapon(defaultWeaponConfig);
+            
+        
+        public Health GetActualTarget() =>  target;
+        
+        public void EquipWeapon(WeaponConfig weapon)
         {
-            return target;
-        }
-        private Weapon SetupDefaultWeapon()
-        {
-            AttachWeapon(defaultWeapon);
-            return defaultWeapon;
-        }
-        public void EquipWeapon(Weapon weapon)
-        {
-            currentWeapon.value = weapon;                
-            AttachWeapon(weapon);
+           currentWeaponConfig = weapon;                
+           currentWeapon.value =  AttachWeapon(weapon);
         }
 
-        private void AttachWeapon(Weapon weapon)
-        {
-            if (currentWeapon == null) return;
-            weapon.Spawn(rightHandTransform, leftHandTransform, GetComponent<Animator>());
+        private Weapon AttachWeapon(WeaponConfig weapon)
+        {            
+            return weapon.Spawn(rightHandTransform, leftHandTransform, GetComponent<Animator>());
         }
 
         public bool CanAttack(GameObject combatTarget)
         {
             if (combatTarget == null) return false;
             if (combatTarget == this.gameObject) return false;
+            if (!mover.CanMoveTo(combatTarget.transform.position) &&
+                !GetIsInRange(combatTarget.transform))
+            {
+                return false;
+            }
+                
 
             Health verifytarget = combatTarget.GetComponent<Health>();            
             return verifytarget != null && !verifytarget.IsDead();
@@ -95,11 +98,13 @@ namespace BlackCat.Combat {
         void Hit()
         {
             if (target == null) return;
-
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
-            if (currentWeapon.value.HasProjectile())
+
+            if (currentWeapon.value != null)
+                currentWeapon.value.OnHit();
+            if (currentWeaponConfig.HasProjectile())
             {
-                currentWeapon.value.LaunchProjectile(gameObject, rightHandTransform, leftHandTransform, target, damage);
+                currentWeaponConfig.LaunchProjectile(gameObject, rightHandTransform, leftHandTransform, target, damage);
             }
             else
             {
@@ -114,7 +119,7 @@ namespace BlackCat.Combat {
         private void AttackBehavior()
         {
             this.transform.LookAt(target.transform);
-            if (timeSinceLastAttack > currentWeapon.value.GetTimeBetweenAttacks() )
+            if (timeSinceLastAttack > currentWeaponConfig.GetTimeBetweenAttacks() )
             {
                 TriggerAttack();
                 timeSinceLastAttack = 0f;
@@ -124,14 +129,15 @@ namespace BlackCat.Combat {
 
         private void TriggerAttack()
         {
+            IsAttacking = true;
             GetComponent<Animator>().ResetTrigger("stopAttack");
             // This will trigger the Hit() Animation Event Above
             GetComponent<Animator>().SetTrigger("attack");
         }
 
-        private bool GetIsInRange()
+        private bool GetIsInRange(Transform targetTrasnform)
         {
-            return Vector3.Distance(this.transform.position, target.transform.position) <= currentWeapon.value.GetRange();
+            return Vector3.Distance(this.transform.position, targetTrasnform.position) <= currentWeaponConfig.GetRange();
         }
 
         public void Cancel()
@@ -143,6 +149,7 @@ namespace BlackCat.Combat {
 
         private void TriggerStopAttack()
         {
+            IsAttacking = false;
             GetComponent<Animator>().ResetTrigger("attack");
 
             GetComponent<Animator>().SetTrigger("stopAttack");
@@ -156,14 +163,14 @@ namespace BlackCat.Combat {
 
         public object CaptureState()
         {
-            return currentWeapon.value.name;
+            return currentWeaponConfig.name;
         }
 
         public void RestoreState(object state)
         {
 
             string weaponName = (string)state;
-            Weapon weapon = Resources.Load<Weapon>(weaponName);
+            WeaponConfig weapon = Resources.Load<WeaponConfig>(weaponName);
             EquipWeapon(weapon);
         }
 
@@ -171,7 +178,7 @@ namespace BlackCat.Combat {
         {
             if (stat == Stat.Damage)
             {
-                yield return (currentWeapon.value.GetDamage(),currentWeapon.value.getPercentageBonus());
+                yield return (currentWeaponConfig.GetDamage(),currentWeaponConfig.getPercentageBonus());
             }
         }
     }

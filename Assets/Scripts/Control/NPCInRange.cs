@@ -7,22 +7,27 @@ namespace BlackCat.Control {
 	public class NPCInRange : MonoBehaviour
 	{
 		private List<GameObject> ListNPC = null;
-
+        private ControlManager controlManager = null;
 
         private void Start()
         {
             ListNPC = new List<GameObject>();
+            controlManager = GameObject.FindObjectOfType<ControlManager>();
         }
         public List<GameObject> GetNPCInRange() 
         { 
             return ListNPC;
         }
-            private void OnTriggerEnter(Collider other)
+
+        private void OnTriggerEnter(Collider other)
         {
+
             if (other.gameObject.GetComponent<ActionScheduler>() == null) return;
             if (other.gameObject.tag == "Player") return;
+            if (controlManager.IsDisable)
+                controlManager.DisableTargetControl(other.gameObject);
 
-            ListNPC.Add(other.gameObject);
+           ListNPC.Add(other.gameObject);
 
         }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,7 @@ namespace BlackCat.Stats {
 		// Update is called once per frame
 		void Update()
 		{
-			GetComponent<Text>().text = experience.GetExperience().ToString();
+			GetComponent<TextMeshProUGUI>().text = experience.GetExperience().ToString();
 		}
 	}
 }
