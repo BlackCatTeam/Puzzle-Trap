@@ -1,6 +1,7 @@
 using BlackCat.Attributes;
 using BlackCat.Core;
 using BlackCat.Core.Interfaces;
+using BlackCat.Inventories;
 using BlackCat.Movement;
 using BlackCat.Saving;
 using BlackCat.Stats;
@@ -10,7 +11,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace BlackCat.Combat {
-	public class Fighter : MonoBehaviour , IAction , ISaveable, IModifierProvider
+	public class Fighter : MonoBehaviour , IAction , ISaveable
     {             
         [SerializeField] Health target;
         [SerializeField] Transform rightHandTransform = null;
@@ -24,11 +25,18 @@ namespace BlackCat.Combat {
         private bool IsAttacking =false;
         float timeSinceLastAttack = Mathf.Infinity;
 
+        Equipment equipment;
+
         private void Awake()
         {
             mover = GetComponent<Mover>();
             currentWeaponConfig = defaultWeaponConfig;
             currentWeapon = new LazyValue<Weapon>(SetupDefaultWeapon);
+            equipment = GetComponent<Equipment>();
+            if (equipment)
+            {
+                equipment.equipmentUpdated += UpdateWeapon;
+            }
         }
 
         private void Start()
@@ -71,7 +79,15 @@ namespace BlackCat.Combat {
            currentWeaponConfig = weapon;                
            currentWeapon.value =  AttachWeapon(weapon);
         }
+        private void UpdateWeapon()
+        {
+            var weapon = equipment.GetItemInSlot(EquipLocation.Weapon) as WeaponConfig;
+            if (weapon == null)
+                EquipWeapon(defaultWeaponConfig);
+            else
+                EquipWeapon(weapon);
 
+        }
         private Weapon AttachWeapon(WeaponConfig weapon)
         {            
             return weapon.Spawn(rightHandTransform, leftHandTransform, GetComponent<Animator>());
@@ -172,14 +188,6 @@ namespace BlackCat.Combat {
             string weaponName = (string)state;
             WeaponConfig weapon = Resources.Load<WeaponConfig>(weaponName);
             EquipWeapon(weapon);
-        }
-
-        public IEnumerable<(float valueBonus, float percentageBonus)> GetAdditiveModifier(Stat stat)
-        {
-            if (stat == Stat.Damage)
-            {
-                yield return (currentWeaponConfig.GetDamage(),currentWeaponConfig.getPercentageBonus());
-            }
         }
     }
 }

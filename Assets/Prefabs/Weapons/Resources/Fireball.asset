@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5431c5f5d08358f4aa4b8ee1c1bd99f5, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  itemID: b78f49b6-d90a-46d1-b220-d4c719dabe65
+  displayName: Fireball
+  description: A Magic Glove that throws Fireballs
+  icon: {fileID: 21300000, guid: cbc705c28892f8547a11bec2f757eec1, type: 3}
+  pickup: {fileID: 578572753335189921, guid: fb754f49e794dde4193229e5e657ff34, type: 3}
+  stackable: 0
+  allowedEquipLocation: 5
+  animatorOverride: {fileID: 22100000, guid: 05552dab8040c99438f72d9def2e9482, type: 2}
+  equippedPrefab: {fileID: -2224476627312753390, guid: 46216640c48b3fa44adea77f4c0fac87, type: 3}
+  damage: 30
+  percentageDamageBonus: 0
+  range: 10
+  timeBetweenAttacks: 1
+  isRightHanded: 0
+  projectile: {fileID: 2812359184209783503, guid: 0159b403566172e4c9d162d27907ed10, type: 3}

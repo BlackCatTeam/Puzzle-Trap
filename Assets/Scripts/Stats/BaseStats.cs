@@ -47,35 +47,44 @@ namespace BlackCat.Stats {
         }
 		public float GetStat(Stat stat)
         {
-			(float damageBonus, float percentageBonus) BonusStats = GetAdditiveModifier(stat);
+		float bonusAdditive = GetAdditiveModifier(stat);
+		float bonusPercentage = GetPercentageModifier(stat);
 
-			return GetBaseStat(stat) + BonusStats.damageBonus * (1 + BonusStats.percentageBonus / 100);
+			return GetBaseStat(stat) + bonusAdditive * (1 + bonusPercentage / 100);
         }
         private float GetBaseStat(Stat stat)
         {
             return progression.GetStat(stat, characterClass, GetLevel());
         }
 
-        private (float valueBonus,float percentageBonus) GetAdditiveModifier(Stat stat)
+        private float GetAdditiveModifier(Stat stat)
         {
-			float totalDamage = 0;
-			float totalPercentage = 0;
+			float totalAdditive = 0;
 			foreach (IModifierProvider provider in GetComponents<IModifierProvider>())
             {
 				foreach (var modifier  in provider.GetAdditiveModifier(stat))
                 {
-					totalDamage += modifier.valueBonus;
-					totalPercentage += modifier.percentageBonus;
-
+					totalAdditive += modifier;					
                 }
             }
-
-
-
-			return (totalDamage,totalPercentage);
+			return totalAdditive;
         }
+		private float GetPercentageModifier(Stat stat)
+		{
+			float totalPercentage = 0;
+			foreach (IModifierProvider provider in GetComponents<IModifierProvider>())
+			{
+				foreach (var modifier in provider.GetPercentageModifier(stat))
+				{
+					totalPercentage += modifier;
+				}
+			}
 
-        private void UpdateLevel()
+
+
+			return totalPercentage;
+		}
+		private void UpdateLevel()
         {
 
 			int newLevel = CalculateLevel();

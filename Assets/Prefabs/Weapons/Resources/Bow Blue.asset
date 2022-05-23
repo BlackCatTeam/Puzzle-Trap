@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5431c5f5d08358f4aa4b8ee1c1bd99f5, type: 3}
+  m_Name: Bow Blue
+  m_EditorClassIdentifier: 
+  itemID: 17d92e0f-65b1-4d0c-a1be-40bfcffae98f
+  displayName: Bow Blue
+  description: 'A Ally Bow ???!! '
+  icon: {fileID: 21300000, guid: b47f6b9958d75c741b39218bc8301bb5, type: 3}
+  pickup: {fileID: 0}
+  stackable: 0
+  allowedEquipLocation: 5
+  animatorOverride: {fileID: 22100000, guid: ec0024dcb153a804dacbf25b250adc02, type: 2}
+  equippedPrefab: {fileID: -5481713705352140667, guid: ef59aae4d1352fd4f8b895f307e791ad, type: 3}
+  damage: 10
+  percentageDamageBonus: 0
+  range: 10
+  timeBetweenAttacks: 1
+  isRightHanded: 0
+  projectile: {fileID: 4738768239854604650, guid: d6c1faa50b531b848adc69f6c9394b5a, type: 3}

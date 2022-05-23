@@ -9,7 +9,8 @@ namespace BlackCat.Control {
         Combat,
         Movement,
         UI,
-        Pickup
+        Pickup,
+        FullPickup
 
     }
 }

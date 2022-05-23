@@ -30,6 +30,8 @@ namespace BlackCat.Control
         [SerializeField] float maxNavMeshProjectionDistance = 1f;
 
         [SerializeField] CursorMapping[] cursorMappings = null;
+
+        bool isDragginUI = false;
         void Awake()
         {
             MoverScript = this.GetComponent<Mover>();
@@ -96,11 +98,18 @@ namespace BlackCat.Control
 
         private bool InteractWithUI()
         {
+            if (Input.GetMouseButtonUp(0))
+                isDragginUI = false;
             if (EventSystem.current.IsPointerOverGameObject())// Verifica se o Mouse está em cima de alguma UI
             {
+                if (Input.GetMouseButtonDown(0))
+                    isDragginUI = true;
                 SetCursor(CursorType.UI);
                 return true;
             }
+            if (isDragginUI)
+                return true;
+
             return false; 
         }
 

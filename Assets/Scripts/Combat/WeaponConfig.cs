@@ -1,12 +1,15 @@
 using BlackCat.Attributes;
 using BlackCat.Core;
+using BlackCat.Inventories;
+using BlackCat.Stats;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace BlackCat.Combat
 {
     [CreateAssetMenu(fileName = "Weapon", menuName = "Black Cat/Weapons/Make New Weapon",order = 0)]
-    public class WeaponConfig : ScriptableObject
+    public class WeaponConfig : EquipableItem, IModifierProvider
     {
         [SerializeField] private AnimatorOverrideController animatorOverride = null;
         [SerializeField] private Weapon equippedPrefab = null;
@@ -78,7 +81,17 @@ namespace BlackCat.Combat
         public float getPercentageBonus() { return this.percentageDamageBonus; }
         public float GetRange() { return this.range; }
         public float GetTimeBetweenAttacks() { return this.timeBetweenAttacks; }
-        
 
+        public IEnumerable<float> GetAdditiveModifier(Stat stat)
+        {
+            if (stat == Stat.Damage)
+                yield return damage;
+        }
+
+        public IEnumerable<float> GetPercentageModifier(Stat stat)
+        {
+            if (stat == Stat.Damage)
+                yield return percentageDamageBonus;
+        }
     }
 }
