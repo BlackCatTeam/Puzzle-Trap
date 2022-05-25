@@ -62,19 +62,11 @@ namespace BlackCat.Dialogue.Editor
         }        
         private void SetNodeStyle()
         {
-            // IA
             nodeStyle = new GUIStyle();
             nodeStyle.padding = new RectOffset(20, 20, 20, 20);
             nodeStyle.border = new RectOffset(12, 12, 12, 12);
             nodeStyle.normal.background = EditorGUIUtility.Load("node0") as Texture2D;
-            nodeStyle.normal.textColor = Color.white; 
-            
-            //Falas do Jogador
-            playerNodeStyle = new GUIStyle();
-            playerNodeStyle.padding = new RectOffset(20, 20, 20, 20);
-            playerNodeStyle.border = new RectOffset(12, 12, 12, 12);
-            playerNodeStyle.normal.background = EditorGUIUtility.Load("node1") as Texture2D;
-            playerNodeStyle.normal.textColor = Color.white;
+            nodeStyle.normal.textColor = Color.white;             
         }
 
         private void OnSelectionChanged()
@@ -141,15 +133,52 @@ namespace BlackCat.Dialogue.Editor
                     startPosition, 
                     endPosition, 
                     startPosition + controlPointOffset, 
-                    endPosition - controlPointOffset, 
-                    Color.white, 
+                    endPosition - controlPointOffset,
+                    ConnectionsColor(node), 
                     null, 
                     4f);
 
 
             }
         }
-
+        private Color ConnectionsColor(DialogueNode node)
+        {
+            switch (node.GetSpeaker())
+            {
+                case SpeakerType.Player:
+                    {
+                        return Color.blue;
+                    }
+                case SpeakerType.NPC1:
+                    {
+                        return Color.cyan;
+                    }
+                case SpeakerType.NPC2:
+                    {
+                        return Color.green;
+                    }
+                case SpeakerType.NPC3:
+                    {
+                        return Color.yellow;
+                    }
+                case SpeakerType.Enemy1:
+                    {
+                        return new Color(255f ,165f,0f,1f);
+                    }
+                case SpeakerType.Enemy2:
+                    {
+                        return Color.red;
+                    }
+                case SpeakerType.Enemy3:
+                    {
+                        return Color.gray;
+                    }
+                default:
+                    {
+                        return Color.white;
+                    }
+            }
+        }
         private void ProcessEvents()
         {
             if (Event.current.type == EventType.MouseDown && draggingNode == null)
@@ -195,7 +224,7 @@ namespace BlackCat.Dialogue.Editor
 
         private void DrawNode(DialogueNode node)
         {
-            SetNewColorNode(node);
+            nodeStyle.normal.background = SetNewColorNode(node);
 
             GUILayout.BeginArea(node.GetRect(), nodeStyle);
 
@@ -215,54 +244,62 @@ namespace BlackCat.Dialogue.Editor
             }
 
             GUILayout.EndHorizontal();
-
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Begin Action Type: ");
+            node.SetAction((ActionType)EditorGUILayout.EnumPopup(node.GetAction(true)),true);           
+            GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Exit Action Type:     ");
+            node.SetAction((ActionType)EditorGUILayout.EnumPopup(node.GetAction(false)), false);
+            GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Animation Node:");
+            node.SetAnimationClip(EditorGUILayout.ObjectField(node.GetAnimationClip(), typeof(AnimationClip), true) as AnimationClip);
+            GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("Dubbing Node:");
+            node.SetDubbing(EditorGUILayout.ObjectField(node.GetDubbing(),typeof(GameObject),true) as GameObject);
+            GUILayout.EndHorizontal();
             GUILayout.EndArea();
         }
 
-        private void SetNewColorNode(DialogueNode node)
+        private Texture2D SetNewColorNode(DialogueNode node)
         {
             switch (node.GetSpeaker())
             {
                 case SpeakerType.Player:
                     {
-                        nodeStyle.normal.background = EditorGUIUtility.Load("node1") as Texture2D;
-                        break;
+                        return EditorGUIUtility.Load("node1") as Texture2D;
+                        
                     }
                 case SpeakerType.NPC1:
                     {
-                        nodeStyle.normal.background = EditorGUIUtility.Load("node2") as Texture2D;
-                        break;
+                        return EditorGUIUtility.Load("node2") as Texture2D;
                     }
                 case SpeakerType.NPC2:
                     {
-                        nodeStyle.normal.background = EditorGUIUtility.Load("node3") as Texture2D;
-                        break;
+                        return EditorGUIUtility.Load("node3") as Texture2D;
                     }
                 case SpeakerType.NPC3:
                     {
-                        nodeStyle.normal.background = EditorGUIUtility.Load("node4") as Texture2D;
-                        break;
+                        return EditorGUIUtility.Load("node4") as Texture2D;
                     }
                 case SpeakerType.Enemy1:
                     {
-                        nodeStyle.normal.background = EditorGUIUtility.Load("node5") as Texture2D;
-                        break;
+                        return EditorGUIUtility.Load("node5") as Texture2D;
                     }
                 case SpeakerType.Enemy2:
                     {
-                        nodeStyle.normal.background = EditorGUIUtility.Load("node6") as Texture2D;
-                        break;
+                        return EditorGUIUtility.Load("node6") as Texture2D;
                     }
                 case SpeakerType.Enemy3:
                     {
-                        nodeStyle.normal.background = EditorGUIUtility.Load("node0") as Texture2D;
-                        break;
+                        return EditorGUIUtility.Load("node0") as Texture2D;
                     }
 
                 default:
                     {
-                        nodeStyle.normal.background = EditorGUIUtility.Load("node0") as Texture2D;
-                        break;
+                        return EditorGUIUtility.Load("node0") as Texture2D;
                     }
             }
         }

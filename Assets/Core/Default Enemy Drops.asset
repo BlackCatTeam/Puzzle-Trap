@@ -20,21 +20,71 @@ MonoBehaviour:
     maxNumber: 00000000
   - item: {fileID: 11400000, guid: 7b0713eeacb29164d8cc837b237edc31, type: 2}
     relativeChance:
-    - 1
+    - 5
     - 2
     - 3
     minNumber: 01000000
-    maxNumber: 02000000
+    maxNumber: 05000000
   - item: {fileID: 11400000, guid: c9fe555e4a993854792d4c15f7d65e2f, type: 2}
     relativeChance:
     - 20
     minNumber: 01000000
     maxNumber: 
-  - item: {fileID: 11400000, guid: c9fe555e4a993854792d4c15f7d65e2f, type: 2}
+  - item: {fileID: 11400000, guid: 0229b87444159a04a803a1810aed7dc5, type: 2}
     relativeChance:
     - 50
     minNumber: 3200000064000000
     maxNumber: 64000000
-  dropChancePercentage: []
+  dropChancePercentage:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   minDrop: 
   maxDrop: 

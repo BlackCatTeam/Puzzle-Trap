@@ -68,11 +68,15 @@ namespace BlackCat.Inventories
             {  
                 if (object.ReferenceEquals(item, dockedItems[index].item))
                 {
+                    Debug.Log("Adicionei Item");
+
                     dockedItems[index].number += number;
                 }
             }
             else
             {
+                Debug.Log("Adicionei Item");
+
                 var slot = new DockedItemSlot();
                 slot.item = item as ActionItem;
                 slot.number = number;
@@ -94,6 +98,8 @@ namespace BlackCat.Inventories
         {
             if (dockedItems.ContainsKey(index))
             {
+                Debug.Log("Usei Item");
+
                 dockedItems[index].item.Use(user);
                 if (dockedItems[index].item.isConsumable())
                 {
@@ -111,6 +117,8 @@ namespace BlackCat.Inventories
         {
             if (dockedItems.ContainsKey(index))
             {
+                Debug.Log("Removi Item");
+
                 dockedItems[index].number -= number;
                 if (dockedItems[index].number <= 0)
                 {

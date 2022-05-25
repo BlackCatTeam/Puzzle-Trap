@@ -1,0 +1,321 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9107309052663892016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: dd9c0f69-c625-4bc0-988b-c3f8e172e30f
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: PARADO AI MESMO, PORQUE DESEJA ENTRAR NA NOSSA CIDADE?!
+  children:
+  - ab2977ff-da7d-4142-9a59-34a858080775
+  - 2a48bd70-2561-4087-9bf2-c7787814b3ee
+  rect:
+    serializedVersion: 2
+    x: 190
+    y: 284
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 7400000, guid: 24d693751e9fd0b42ba8f9595d8b5f5e, type: 3}
+  audioDubb: {fileID: 1915537997765904946, guid: 3fe549b5815fca14ba500c1cfc287158, type: 3}
+--- !u!114 &-8992605900530658307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: ab2977ff-da7d-4142-9a59-34a858080775
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "NINGUEM EST\xC1 AUTORIZADO A ENTRAR!"
+  children:
+  - 38dc8057-ea9f-4c4e-9497-7abc2ef402ee
+  - ea5d8db4-3585-4ba6-b6d6-5caecbe628de
+  - 235ac21b-28e2-44b3-bf73-1be408f00727
+  rect:
+    serializedVersion: 2
+    x: 569
+    y: 179
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 7400000, guid: 24d693751e9fd0b42ba8f9595d8b5f5e, type: 3}
+  audioDubb: {fileID: 1915537997765904946, guid: 3fe549b5815fca14ba500c1cfc287158, type: 3}
+--- !u!114 &-8741172620632502810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: bcfadfdd-1046-4c99-b880-376116e565a3
+  m_EditorClassIdentifier: 
+  speaker: 2
+  text: "Meu Nome \xE9 Joao"
+  children:
+  - 235ac21b-28e2-44b3-bf73-1be408f00727
+  - ea5d8db4-3585-4ba6-b6d6-5caecbe628de
+  - 38dc8057-ea9f-4c4e-9497-7abc2ef402ee
+  - c23c28cf-007f-4c7b-9687-e2fb74a8e495
+  rect:
+    serializedVersion: 2
+    x: 655
+    y: 413
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 7400000, guid: 1cb8ed3cbba15f0479fbae54e0a963df, type: 3}
+  audioDubb: {fileID: 1915537997765904946, guid: 3fe549b5815fca14ba500c1cfc287158, type: 3}
+--- !u!114 &-8234966394826396454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: ea5d8db4-3585-4ba6-b6d6-5caecbe628de
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: 'I''m gonna kill the King![ Fight ] '
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1277
+    y: 218
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 2
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+--- !u!114 &-7851657738689659723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 1d7ef4b4-4785-4a7d-a012-cd1a56d7e884
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: Adeus
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1763
+    y: 68
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+--- !u!114 &-6657650844971806376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 81160ae3-ea96-4f41-bf24-380edd35e5fa
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: BOM TE CONHECER, MAS RESPNDA O MOTIVO DA SUA VINDA
+  children:
+  - 235ac21b-28e2-44b3-bf73-1be408f00727
+  - ea5d8db4-3585-4ba6-b6d6-5caecbe628de
+  - 38dc8057-ea9f-4c4e-9497-7abc2ef402ee
+  rect:
+    serializedVersion: 2
+    x: 1041
+    y: 637
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+--- !u!114 &-5665834214316765458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: c23c28cf-007f-4c7b-9687-e2fb74a8e495
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: "Meu nome \xE9 Protagonista!"
+  children:
+  - 81160ae3-ea96-4f41-bf24-380edd35e5fa
+  rect:
+    serializedVersion: 2
+    x: 816
+    y: 645
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+--- !u!114 &-1191736835925731463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 38dc8057-ea9f-4c4e-9497-7abc2ef402ee
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: Vim a Negocios
+  children:
+  - f7f47700-c2f6-449e-9de8-e369263ab599
+  rect:
+    serializedVersion: 2
+    x: 1226
+    y: 6
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52954d843245cb14fa6aba3e8d02d13d, type: 3}
+  m_Name: Jorge Dialogo Cidade
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -9107309052663892016}
+  - {fileID: -8992605900530658307}
+  - {fileID: 1483934485959328080}
+  - {fileID: -8234966394826396454}
+  - {fileID: -1191736835925731463}
+  - {fileID: 218661098433901820}
+  - {fileID: 8803918661403578955}
+  - {fileID: -7851657738689659723}
+  - {fileID: -5665834214316765458}
+  - {fileID: -6657650844971806376}
+  - {fileID: -8741172620632502810}
+  CanvaxWidth: 4000
+  CanvaxHeight: 4000
+  newNodeOffset: {x: 250, y: 0}
+  isSkippable: 0
+--- !u!114 &218661098433901820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 2a48bd70-2561-4087-9bf2-c7787814b3ee
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "ALIAS MEU NOME \xC9 JORGE"
+  children:
+  - bcfadfdd-1046-4c99-b880-376116e565a3
+  rect:
+    serializedVersion: 2
+    x: 408
+    y: 470
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 7400000, guid: 431be525a743d9a44bd889d99f039ec6, type: 3}
+  audioDubb: {fileID: 1915537997765904946, guid: 3fe549b5815fca14ba500c1cfc287158, type: 3}
+--- !u!114 &1483934485959328080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 235ac21b-28e2-44b3-bf73-1be408f00727
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: Estou indo embora
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1292
+    y: 451
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+--- !u!114 &8803918661403578955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: f7f47700-c2f6-449e-9de8-e369263ab599
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: Boas Vendas
+  children:
+  - 1d7ef4b4-4785-4a7d-a012-cd1a56d7e884
+  rect:
+    serializedVersion: 2
+    x: 1485
+    y: 38
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}

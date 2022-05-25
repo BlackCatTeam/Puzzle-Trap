@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,10 +12,13 @@ namespace BlackCat.Dialogue
     [CreateAssetMenu(fileName = "New Dialogue", menuName = "Black Cat/Dialogue", order = 0)]
     public class Dialogue : ScriptableObject , ISerializationCallbackReceiver
     {
+        [Header("Configurations")]
         [SerializeField] List<DialogueNode> nodes = new List<DialogueNode>();
         [SerializeField] float CanvaxWidth = 4000f;
         [SerializeField] float CanvaxHeight = 4000f;
         [SerializeField] Vector2 newNodeOffset = new Vector2(250,0);
+        [SerializeField] bool isSkippable = true;
+ 
 
         Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
         private void Awake()
@@ -33,9 +37,46 @@ namespace BlackCat.Dialogue
             nodeLookup.Clear();
             foreach (DialogueNode node in GetAllNodes())
             {
-                nodeLookup[node.name] = node;
+                    nodeLookup[node.name] = node;
             }
         }
+
+        public bool IsLastNode(DialogueNode currentNode)
+        {
+            if (currentNode.GetChildren().Count() == 0)
+                return true;
+            return false;
+        }
+
+
+
+        public bool GetIsSkippable()
+        {
+            return isSkippable;
+        }
+        public IEnumerable<DialogueNode> GetPlayerChildren(DialogueNode currentNode)
+        {
+            foreach(DialogueNode node in GetAllChildren(currentNode))
+            {
+                if (node.IsPlayerSpeaking())
+                {
+                    yield return node;
+                }
+            }
+
+        }
+
+        public IEnumerable<DialogueNode> GetAIChildren(DialogueNode currentNode)
+        {
+            foreach (DialogueNode node in GetAllChildren(currentNode))
+            {
+                if (!node.IsPlayerSpeaking())
+                {
+                    yield return node;
+                }
+            }
+        }
+
         public float GetCanvasWidth()
         {
             return CanvaxWidth; 

@@ -12,8 +12,27 @@ namespace BlackCat.Dialogue
         [TextArea][SerializeField] private string text;
         [SerializeField] private List<string> children = new List<string>();
         [SerializeField] private Rect rect = new Rect(0,0,200,200);
+        [SerializeField] private ActionType beginAction;
+        [SerializeField] private ActionType exitAction;
+        [SerializeField] private AnimationClip animationClip;
+        [SerializeField] private GameObject audioDubb;
 
-
+        public GameObject GetDubbing()
+        {
+            return audioDubb;
+        }
+        public void SetDubbing(GameObject audio)
+        {
+            audioDubb = audio;
+        }
+        public AnimationClip GetAnimationClip()
+        {
+            return animationClip;
+        }
+        public void SetAnimationClip(AnimationClip animation)
+        {
+            animationClip = animation;
+        }
         public string GetText()
         {
             return this.text;
@@ -21,6 +40,22 @@ namespace BlackCat.Dialogue
         public List<string> GetChildren()
         {
             return this.children;
+        }
+        public ActionType GetAction(bool IsBeginAction)
+        {
+            if (IsBeginAction)
+                return this.beginAction;
+            else
+                return this.exitAction;
+        }
+        public void SetAction(ActionType action,bool IsBeginAction)
+        {
+            if (IsBeginAction)
+            {
+                this.beginAction = action;
+            }
+            else
+                this.exitAction = action;
         }
         public Rect GetRect()
         {
@@ -64,6 +99,7 @@ namespace BlackCat.Dialogue
             children.Remove(childId);
             EditorUtility.SetDirty(this);
         }
+
 
         public void SetSpeaker(SpeakerType newSpeaker)
         {

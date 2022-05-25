@@ -1,0 +1,180 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8876537182875326786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: eaf7309a-c1d7-4fb6-b142-81e9dd310bed
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: Vim matar o Rei
+  children:
+  - 49228393-4c8c-4342-8ebf-5d9bd6d9a661
+  rect:
+    serializedVersion: 2
+    x: 713
+    y: 368
+    width: 200
+    height: 200
+--- !u!114 &-4702451883136649626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: e0113bdc-581e-4a64-a44a-7e66eea48de5
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: Vou Pescar
+  children:
+  - 9ca48efc-1555-4f50-a662-89087b45742d
+  rect:
+    serializedVersion: 2
+    x: 711
+    y: 47
+    width: 200
+    height: 200
+--- !u!114 &-2732148161354575343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 9ca48efc-1555-4f50-a662-89087b45742d
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "N\xC3O"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 971
+    y: 37
+    width: 200
+    height: 200
+--- !u!114 &-1690027416391884358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: b86153ea-4555-48ea-8606-a29558643628
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "Aqui s\xF3 temos Pessoas Boas"
+  children:
+  - eaf7309a-c1d7-4fb6-b142-81e9dd310bed
+  - e0113bdc-581e-4a64-a44a-7e66eea48de5
+  rect:
+    serializedVersion: 2
+    x: 332
+    y: 358
+    width: 200
+    height: 200
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52954d843245cb14fa6aba3e8d02d13d, type: 3}
+  m_Name: Guard
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 7350204039190729024}
+  - {fileID: -4702451883136649626}
+  - {fileID: -8876537182875326786}
+  - {fileID: 7392160496984561583}
+  - {fileID: -2732148161354575343}
+  - {fileID: 5928350661750198700}
+  - {fileID: -1690027416391884358}
+  CanvaxWidth: 4000
+  CanvaxHeight: 4000
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &5928350661750198700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: d37f04b1-d5bf-4012-ba8f-0ba85643ea4d
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "Aqui s\xF3 temos Saqueadores"
+  children:
+  - e0113bdc-581e-4a64-a44a-7e66eea48de5
+  - eaf7309a-c1d7-4fb6-b142-81e9dd310bed
+  rect:
+    serializedVersion: 2
+    x: 347
+    y: 47
+    width: 200
+    height: 200
+--- !u!114 &7350204039190729024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: cba86a58-2e08-458e-b073-a1009b7aa3bf
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: Oque vem fazer nessa cidade?
+  children:
+  - d37f04b1-d5bf-4012-ba8f-0ba85643ea4d
+  - b86153ea-4555-48ea-8606-a29558643628
+  rect:
+    serializedVersion: 2
+    x: 74
+    y: 204
+    width: 200
+    height: 200
+--- !u!114 &7392160496984561583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 49228393-4c8c-4342-8ebf-5d9bd6d9a661
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: Beleza
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1041
+    y: 363
+    width: 200
+    height: 200

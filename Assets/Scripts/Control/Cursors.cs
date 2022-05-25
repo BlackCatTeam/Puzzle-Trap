@@ -10,7 +10,8 @@ namespace BlackCat.Control {
         Movement,
         UI,
         Pickup,
-        FullPickup
+        FullPickup,
+        Dialogue
 
     }
 }
