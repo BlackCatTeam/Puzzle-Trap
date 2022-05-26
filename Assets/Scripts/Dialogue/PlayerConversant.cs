@@ -8,17 +8,20 @@ namespace BlackCat.Dialogue
 {
     public class PlayerConversant : MonoBehaviour
     {
+        [SerializeField] string PlayerName;
         Dialogue currentDialogue = null;
         DialogueNode currentNode = null;
         bool isChoosing = false;
         public event Action onConversationUpdated;
         private AIConversant aiConversant;
 
+
         public void StartDialog(Dialogue newDialogue,AIConversant newAiConversant)
         {
+            aiConversant = newAiConversant;
             currentDialogue = newDialogue;
             currentNode = currentDialogue.GetRootNode();
-            aiConversant = newAiConversant;
+            TriggerEnterAction();
             onConversationUpdated();
 
         }
@@ -38,9 +41,23 @@ namespace BlackCat.Dialogue
         {
             if (chosenNode == null) return;
             currentNode = chosenNode;
+            TriggerEnterAction();
             isChoosing = false;
             Next();
         }
+
+        public string GetCurrentConversantName()
+        {
+            if (isChoosing)
+            {
+                return PlayerName;
+            }
+            else
+            {
+                return aiConversant.GetSpeaker(currentNode.GetSpeaker()).GetComponent<AIConversant>().GetName();
+            }
+        }
+
         public bool IsSkippable()
         {
             return currentDialogue.GetIsSkippable();
@@ -56,7 +73,8 @@ namespace BlackCat.Dialogue
             int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
             if (numPlayerResponses > 0)
             {
-                isChoosing = true;
+                isChoosing = true; 
+                TriggerExitAction();
                 onConversationUpdated();
 
                 return;
@@ -64,8 +82,9 @@ namespace BlackCat.Dialogue
 
             DialogueNode[] children = currentDialogue.GetAIChildren(currentNode).ToArray();
             int randomIndex = UnityEngine.Random.Range(0, children.Count());
+            TriggerExitAction();
             currentNode = children[randomIndex];
-            VerifyBeginAction();
+            TriggerEnterAction();
             VerifyAnimation();
             VerifyDubbing();
             onConversationUpdated();
@@ -103,22 +122,39 @@ namespace BlackCat.Dialogue
             
         }
 
-        private void VerifyBeginAction()
+
+        private void TriggerEnterAction()
         {
+            VerifyAction(isEnterAction: true);
+        }
+        private void TriggerExitAction()
+        {
+            VerifyAction(isEnterAction:false);
+        }
 
-            switch (currentNode.GetAction(true))
+        private void VerifyAction(bool isEnterAction)
+        {
+            if (currentNode == null) return;            
+            TriggerAction(currentNode.GetAction(isEnterAction));
+                    
+            
+        }
+
+        private void TriggerAction(ActionType actionType)
+        {
+            if (actionType == ActionType.Nothing) return;
+
+            foreach(DialogueTrigger trigger in aiConversant.GetComponents<DialogueTrigger>())
             {
-                case ActionType.Nothing: return;
-                case ActionType.Shop: return;
-                case ActionType.Fight: return;
-                default: return;
+                trigger.Trigger(actionType);
             }
-
         }
 
         public void Quit()
         {
             currentDialogue = null;
+            TriggerExitAction();
+            aiConversant = null;
             currentNode = null;
             isChoosing = false;
             onConversationUpdated();

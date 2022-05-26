@@ -6,6 +6,5 @@ public enum ActionType
 {
   Nothing,
   Shop,
-  Fight,
-  Dubbing
+  Fight
 }

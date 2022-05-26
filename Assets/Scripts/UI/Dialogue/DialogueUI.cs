@@ -15,7 +15,8 @@ namespace BlackCat.UI
         [SerializeField] Transform choiceRoot;
         [SerializeField] GameObject choicePrefab;
         [SerializeField] Button quitButton;
-
+        [SerializeField] TextMeshProUGUI SpeakerName;
+            
 
         void Start()
         {
@@ -32,6 +33,9 @@ namespace BlackCat.UI
         {
             gameObject.SetActive(playerConversant.IsActive());
             if (!playerConversant.IsActive()) return;
+
+            if (!playerConversant.IsChoosing())
+                SpeakerName.text = playerConversant.GetCurrentConversantName();
             quitButton.gameObject.SetActive(playerConversant.IsSkippable());
             choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
             nextButton.gameObject.SetActive(!playerConversant.IsChoosing());

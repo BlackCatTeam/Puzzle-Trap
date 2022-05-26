@@ -6,14 +6,15 @@ using UnityEngine;
 
 public class AIConversant : MonoBehaviour, IRaycastable
 {
+    [SerializeField] string npcName;
     [SerializeField] Dialogue dialogue = null;
     [SerializeField] SpeakerType speaker = SpeakerType.NPC1;
     [Space(10)]
     [Header("A Variavel Npc 1 caso Nula, pega o GameObject de Origem")]
 
     [Header("SPEAKERS")]
-    [Space(10)]
-    [SerializeField] GameObject npc1 = null;
+    [Space(10)]    
+    [SerializeField] GameObject npc1 = null;    
     [SerializeField] GameObject npc2 = null;
     [SerializeField] GameObject npc3 = null;
     [SerializeField] GameObject Enemy1 = null;
@@ -23,6 +24,10 @@ public class AIConversant : MonoBehaviour, IRaycastable
     {
         if (npc1 is null)
             npc1 = this.gameObject;
+    }
+    public string GetName()
+    {
+        return npcName;
     }
     public GameObject GetSpeaker(SpeakerType speakerType)
     {

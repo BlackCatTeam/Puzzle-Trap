@@ -439,15 +439,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scatterDistance: 1
-  dropLibrary:
-  - {fileID: 11400000, guid: c7107944b0309dc409d3de2975b50b8b, type: 2}
-  - {fileID: 11400000, guid: be15479a50d6bd04aadaf07e829dce85, type: 2}
-  - {fileID: 11400000, guid: c9fe555e4a993854792d4c15f7d65e2f, type: 2}
-  - {fileID: 11400000, guid: ba80ad7f54a641940b65665d16359e0b, type: 2}
-  - {fileID: 11400000, guid: 7b0713eeacb29164d8cc837b237edc31, type: 2}
-  - {fileID: 11400000, guid: cd67a92f7de3bc24eb8500b4556fe607, type: 2}
-  - {fileID: 11400000, guid: 3183e98179f84614d866d6756c1da89f, type: 2}
+  dropLibrary: {fileID: 0}
   NumberDrops: 2
+--- !u!114 &566774151199498538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985551198158032782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004ea5aebd667e5499d410a33d9bc568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Guard
+  dialogue: {fileID: 0}
+  speaker: 1
+  npc1: {fileID: 0}
+  npc2: {fileID: 0}
+  npc3: {fileID: 0}
+  Enemy1: {fileID: 0}
+  Enemy2: {fileID: 0}
+  Enemy3: {fileID: 0}
 --- !u!1001 &3786453861931137759
 PrefabInstance:
   m_ObjectHideFlags: 0
