@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a789c9177cb977449b081409943d1673, type: 3}
+  m_Name: Entregue o Pao pro Jorge
+  m_EditorClassIdentifier: 
+  objectives:
+  - reference: 1
+    description: Entregue o Pao para o Jorge
+    count: 1
+  rewards:
+  - number: 2
+    item: {fileID: 11400000, guid: 0229b87444159a04a803a1810aed7dc5, type: 2}

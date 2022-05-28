@@ -1,0 +1,241 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5574684457137806703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 384f4458-7c96-4631-aca0-6950e5db86a7
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: "J\xE1 entreguei, Ele me deu algumas po\xE7\xF5es!"
+  children:
+  - e1d8ea33-a702-412a-b3b5-87c08410f927
+  rect:
+    serializedVersion: 2
+    x: 532
+    y: 639
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and:
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Entregue o Pao pro Jorge
+        negate: 0
+--- !u!114 &-3384467899718156625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 372c1429-5ed2-4acd-87e7-d529b1e1802d
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "Ah me esqueci, fiz muitos p\xE3os hoje haha"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 778
+    y: 248
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &-2589197536275440951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: b723101a-35f3-44d5-b2dc-bf9d1153fe7b
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: "J\xE1 estou indo! calma!"
+  children:
+  - 372c1429-5ed2-4acd-87e7-d529b1e1802d
+  rect:
+    serializedVersion: 2
+    x: 535
+    y: 251
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Entregue o Pao pro Jorge
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Entregue o Pao pro Jorge
+        negate: 1
+--- !u!114 &-2231635064588026436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 01b74b6b-f572-48c9-998b-7a481ffd51e4
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: "N\xE3o, tenho mais oque fazer"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 538
+    y: 442
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &-1663755874797053807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 47fa06aa-6ad2-4cee-b460-93b590ed5c1d
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "Ol\xE1, tenho esse p\xE3o aqui para o Jorge, Me ajudaria a entrega-lo ?"
+  children:
+  - 7ba2a7a6-c67e-4a35-9487-7afc70ee2644
+  - 01b74b6b-f572-48c9-998b-7a481ffd51e4
+  - 384f4458-7c96-4631-aca0-6950e5db86a7
+  - b723101a-35f3-44d5-b2dc-bf9d1153fe7b
+  rect:
+    serializedVersion: 2
+    x: 204
+    y: 293
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52954d843245cb14fa6aba3e8d02d13d, type: 3}
+  m_Name: Dialogo Mario Cidade
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -1663755874797053807}
+  - {fileID: 4349903672978102341}
+  - {fileID: -2231635064588026436}
+  - {fileID: -5574684457137806703}
+  - {fileID: -2589197536275440951}
+  - {fileID: -3384467899718156625}
+  - {fileID: 7095914316860746645}
+  CanvaxWidth: 4000
+  CanvaxHeight: 4000
+  newNodeOffset: {x: 250, y: 0}
+  isSkippable: 1
+--- !u!114 &4349903672978102341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 7ba2a7a6-c67e-4a35-9487-7afc70ee2644
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: "Claro! irei at\xE9 ele!"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 531
+    y: 28
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 3
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Entregue o Pao pro Jorge
+        negate: 1
+--- !u!114 &7095914316860746645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: e1d8ea33-a702-412a-b3b5-87c08410f927
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "Ah que bom! pode ficar com elas, n\xE3o da pra fazer p\xE3o com po\xE7\xE3o"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 778
+    y: 638
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []

@@ -58,7 +58,7 @@ namespace BlackCat.UI
             {
                 Destroy(item.gameObject);
             }
-            foreach (var choice in playerConversant.GetChoices())
+            foreach (DialogueNode choice in playerConversant.GetChoices())
             {
                 GameObject choiceButton = Instantiate(choicePrefab, choiceRoot);
                 var textComponent = choiceButton.GetComponentInChildren<TextMeshProUGUI>();                
@@ -66,9 +66,7 @@ namespace BlackCat.UI
                 var button = choiceButton.GetComponentInChildren<Button>();
                 button.onClick.AddListener(() => 
                 {
-
                     playerConversant.SelectChoice(choice);
-
                 } 
                 );
 

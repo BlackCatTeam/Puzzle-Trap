@@ -1,0 +1,402 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8514109828910995887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: d327c73d-f7bd-44b1-8379-67ed78837949
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: Sou o seu chefe
+  children:
+  - fb4af86b-baac-4dcc-8524-cdb67ab3ccac
+  rect:
+    serializedVersion: 2
+    x: 1359
+    y: 330
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &-6719867038329562929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 3afa29aa-a86d-494f-bcaf-f97aa180c520
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: "N\xE3o existo"
+  children:
+  - 2c4df19b-73be-4694-9211-125b749e567d
+  rect:
+    serializedVersion: 2
+    x: 1359
+    y: 724
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &-6659937792374240172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: a929ffd7-520b-463e-8ed4-91084a9ac49f
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: EU AMO TURISTAS
+  children:
+  - 7c0c5daa-a407-4346-af7c-73d25bb2478f
+  - d327c73d-f7bd-44b1-8379-67ed78837949
+  - 3afa29aa-a86d-494f-bcaf-f97aa180c520
+  rect:
+    serializedVersion: 2
+    x: 861
+    y: 556
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 1915537997765904946, guid: 3fe549b5815fca14ba500c1cfc287158, type: 3}
+  condition:
+    and: []
+--- !u!114 &-4060492189299645787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 2c4df19b-73be-4694-9211-125b749e567d
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: Ok
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1645
+    y: 626
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &-1926834937363985457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: fb4af86b-baac-4dcc-8524-cdb67ab3ccac
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "Voc\xEA n\xE3o meu Chefe!"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1725
+    y: 322
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 2
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &-1268711327467437929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 7c0c5daa-a407-4346-af7c-73d25bb2478f
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: Sou apenas um visitante
+  children:
+  - 2c4df19b-73be-4694-9211-125b749e567d
+  rect:
+    serializedVersion: 2
+    x: 1350
+    y: 534
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &-764544713563054356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: e22c3be7-43d8-4f0e-8d01-4680e7ff095d
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "Voc\xEA me entende! pode entrar"
+  children:
+  - 9012ecdc-1730-40a2-bcdd-de7b62d3982d
+  rect:
+    serializedVersion: 2
+    x: 1647
+    y: 93
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &-586372296817815518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: cbbfc81c-5d4a-4104-8090-985ecc8fcba9
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "EU N\xC3O SINTO NADA A ANOS"
+  children:
+  - 3afa29aa-a86d-494f-bcaf-f97aa180c520
+  - 7c0c5daa-a407-4346-af7c-73d25bb2478f
+  - d327c73d-f7bd-44b1-8379-67ed78837949
+  rect:
+    serializedVersion: 2
+    x: 861
+    y: 750
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &-414255455120638469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 9012ecdc-1730-40a2-bcdd-de7b62d3982d
+  m_EditorClassIdentifier: 
+  speaker: 2
+  text: WTF
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1897
+    y: 93
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52954d843245cb14fa6aba3e8d02d13d, type: 3}
+  m_Name: Guarda Joao Cidade
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 1634927923213230728}
+  - {fileID: 8687725638223877899}
+  - {fileID: -6659937792374240172}
+  - {fileID: -586372296817815518}
+  - {fileID: -6719867038329562929}
+  - {fileID: -1268711327467437929}
+  - {fileID: -8514109828910995887}
+  - {fileID: 8316633376642172592}
+  - {fileID: -764544713563054356}
+  - {fileID: -1926834937363985457}
+  - {fileID: -4060492189299645787}
+  - {fileID: 2169110741142299504}
+  - {fileID: -414255455120638469}
+  CanvaxWidth: 4000
+  CanvaxHeight: 4000
+  newNodeOffset: {x: 250, y: 0}
+  isSkippable: 1
+--- !u!114 &1634927923213230728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 222c3ec6-442f-4878-b8ad-380637ee23ac
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: 'PARADO AI, SE IDENTIFIQUE! '
+  children:
+  - bc38b1fd-b5fd-4e56-a215-6a4ec09a36b3
+  - a929ffd7-520b-463e-8ed4-91084a9ac49f
+  - cbbfc81c-5d4a-4104-8090-985ecc8fcba9
+  rect:
+    serializedVersion: 2
+    x: 569
+    y: 551
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 1915537997765904946, guid: 3fe549b5815fca14ba500c1cfc287158, type: 3}
+  condition:
+    and: []
+--- !u!114 &2169110741142299504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 30e3ecee-a506-466f-a2d9-60f3c02d61ac
+  m_EditorClassIdentifier: 
+  speaker: 2
+  text: "PARA JORGE, N\xC3O PODEMOS FALAR ASSIM!"
+  children:
+  - 1721b172-1b44-4ebb-9e01-60f06774a988
+  - d327c73d-f7bd-44b1-8379-67ed78837949
+  - 7c0c5daa-a407-4346-af7c-73d25bb2478f
+  - 3afa29aa-a86d-494f-bcaf-f97aa180c520
+  rect:
+    serializedVersion: 2
+    x: 1088
+    y: 222
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 1915537997765904946, guid: 3fe549b5815fca14ba500c1cfc287158, type: 3}
+  condition:
+    and: []
+--- !u!114 &8316633376642172592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 1721b172-1b44-4ebb-9e01-60f06774a988
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: TAMBEM ODEIO TURSITAS
+  children:
+  - e22c3be7-43d8-4f0e-8d01-4680e7ff095d
+  rect:
+    serializedVersion: 2
+    x: 1345
+    y: 82
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &8687725638223877899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: bc38b1fd-b5fd-4e56-a215-6a4ec09a36b3
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: EU ODEIO VISITANTES
+  children:
+  - 30e3ecee-a506-466f-a2d9-60f3c02d61ac
+  rect:
+    serializedVersion: 2
+    x: 854
+    y: 351
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []

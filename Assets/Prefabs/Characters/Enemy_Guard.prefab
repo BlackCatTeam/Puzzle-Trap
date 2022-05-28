@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -4.95
       objectReference: {fileID: 0}
+    - target: {fileID: 3046678974594259504, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
+      propertyPath: maxNavPathLength
+      value: 80.83
+      objectReference: {fileID: 0}
     - target: {fileID: 3046678974594259505, guid: fac3287972eac7e4fb9aaa431da9503f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -405,42 +409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc64b33e049d7645b7d7ed032f09d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2148517003458436378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3985551198158032782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ecde6c5c96066f468843dba8f6fcd0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chaseDistance: 5
-  patrolPath: {fileID: 0}
-  waypointTolerance: 1
-  shoutDistance: 5
-  timePauseBetweenWaypoint: 3
-  timeSuspicious: 3
-  AgroCooldown: 5
-  patrolSpeedFraction: 0.2
-  chaseSpeedFraction: 0.4
---- !u!114 &3437585828125097300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3985551198158032782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b30bfc944f1c97d4fa7fa0e271c3dd15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scatterDistance: 1
-  dropLibrary: {fileID: 0}
-  NumberDrops: 2
 --- !u!114 &566774151199498538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +430,42 @@ MonoBehaviour:
   Enemy1: {fileID: 0}
   Enemy2: {fileID: 0}
   Enemy3: {fileID: 0}
+--- !u!114 &2148517003458436378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985551198158032782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecde6c5c96066f468843dba8f6fcd0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 5
+  patrolPath: {fileID: 0}
+  waypointTolerance: 1
+  shoutDistance: 5
+  timePauseBetweenWaypoint: 3
+  timeSuspicious: 3
+  AgroCooldown: 5
+  patrolSpeedFraction: 0.2
+  chaseSpeedFraction: 1
+--- !u!114 &3437585828125097300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985551198158032782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30bfc944f1c97d4fa7fa0e271c3dd15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scatterDistance: 1
+  dropLibrary: {fileID: 0}
+  NumberDrops: 2
 --- !u!1001 &3786453861931137759
 PrefabInstance:
   m_ObjectHideFlags: 0

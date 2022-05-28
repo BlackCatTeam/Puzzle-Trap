@@ -1,3 +1,5 @@
+using BlackCat.Core;
+using BlackCat.Core.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +19,7 @@ namespace BlackCat.Dialogue
         [SerializeField] private AnimationClip animationClip;
         [SerializeField] private GameObject audioDubb;
 
+        [SerializeField] Condition condition;
         public GameObject GetDubbing()
         {
             return audioDubb;
@@ -70,6 +73,10 @@ namespace BlackCat.Dialogue
         {
             return speaker;
         }
+        public bool CheckCondition(IEnumerable<IPredicateEvaluator> evaluators)
+        {
+            return condition.Check(evaluators);
+        }
 #if UNITY_EDITOR
         public void SetPosition(Vector2 newPosition)
         {
@@ -108,6 +115,8 @@ namespace BlackCat.Dialogue
             speaker = newSpeaker;
             EditorUtility.SetDirty(this);
         }
+
+        
 
 
 #endif

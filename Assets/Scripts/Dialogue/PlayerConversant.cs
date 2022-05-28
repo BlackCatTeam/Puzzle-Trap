@@ -1,3 +1,4 @@
+using BlackCat.Core.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -64,13 +65,13 @@ namespace BlackCat.Dialogue
         }
         public IEnumerable<DialogueNode> GetChoices()
         {
-            return currentDialogue.GetPlayerChildren(currentNode);                     
+            return FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode));                     
         }
 
         public bool IsLastNode() => currentDialogue.IsLastNode(currentNode);
         public void Next()
         {
-            int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
+            int numPlayerResponses =FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode)).Count();
             if (numPlayerResponses > 0)
             {
                 isChoosing = true; 
@@ -79,15 +80,23 @@ namespace BlackCat.Dialogue
 
                 return;
             }
-
-            DialogueNode[] children = currentDialogue.GetAIChildren(currentNode).ToArray();
-            int randomIndex = UnityEngine.Random.Range(0, children.Count());
             TriggerExitAction();
-            currentNode = children[randomIndex];
-            TriggerEnterAction();
-            VerifyAnimation();
-            VerifyDubbing();
-            onConversationUpdated();
+            if (HasNext())
+            {
+                DialogueNode[] children = FilterOnCondition(currentDialogue.GetAIChildren(currentNode)).ToArray();
+            int randomIndex = UnityEngine.Random.Range(0, children.Count());
+          
+                currentNode = children[randomIndex];
+                TriggerEnterAction();
+                VerifyAnimation();
+                VerifyDubbing();
+                onConversationUpdated();
+            }
+            else
+            {
+                Quit();
+            }
+          
 
         }
 
@@ -159,7 +168,22 @@ namespace BlackCat.Dialogue
             isChoosing = false;
             onConversationUpdated();
         }
-        public bool HasNext() => currentDialogue.GetAllChildren(currentNode).Count() > 0;
-        
+        public bool HasNext() => FilterOnCondition(currentDialogue.GetAllChildren(currentNode)).Count() > 0;
+
+        public IEnumerable<DialogueNode> FilterOnCondition(IEnumerable<DialogueNode> inputNode)
+        {
+            foreach (var node in inputNode)
+            {
+                if (node.CheckCondition(GetEvaluators()))
+                {
+                    yield return node;
+                }
+            }
+        }
+
+        private IEnumerable<IPredicateEvaluator> GetEvaluators() 
+        {
+            return GetComponents<IPredicateEvaluator>();
+        }
     }
 }

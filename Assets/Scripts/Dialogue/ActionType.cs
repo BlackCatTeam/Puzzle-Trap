@@ -6,5 +6,7 @@ public enum ActionType
 {
   Nothing,
   Shop,
-  Fight
+  Fight,
+  GiveQuest,
+  CompleteQuest
 }

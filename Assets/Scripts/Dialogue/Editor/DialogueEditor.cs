@@ -245,6 +245,9 @@ namespace BlackCat.Dialogue.Editor
 
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
+            node.SetSpeaker((SpeakerType)EditorGUILayout.EnumPopup(node.GetSpeaker()));
+            GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal();
             GUILayout.Label("Begin Action Type: ");
             node.SetAction((ActionType)EditorGUILayout.EnumPopup(node.GetAction(true)),true);           
             GUILayout.EndHorizontal();

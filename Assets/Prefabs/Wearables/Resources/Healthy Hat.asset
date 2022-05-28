@@ -15,7 +15,7 @@ MonoBehaviour:
   itemID: 7e54e2ee-6198-47cc-805e-59f76e047624
   displayName: Healthy Hat
   description: 
-  icon: {fileID: 21300000, guid: d90fb267ee4e64245b86c677bd935db0, type: 3}
+  icon: {fileID: 21300000, guid: 47d5a904efe36c144b3b7fee8df5e58b, type: 3}
   pickup: {fileID: -5940895722424676426, guid: df9e69798ccb5ac4ab1e0878bf921efa, type: 3}
   stackable: 0
   allowedEquipLocation: 0
