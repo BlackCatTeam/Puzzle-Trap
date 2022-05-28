@@ -27,8 +27,7 @@ MonoBehaviour:
   animationClip: {fileID: 0}
   audioDubb: {fileID: 0}
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &-6864450726859072252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,8 +54,7 @@ MonoBehaviour:
   animationClip: {fileID: 0}
   audioDubb: {fileID: 0}
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &-3804987250982180527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,8 +81,7 @@ MonoBehaviour:
   animationClip: {fileID: 0}
   audioDubb: {fileID: 0}
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &-2609196758815543277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,8 +108,7 @@ MonoBehaviour:
   animationClip: {fileID: 0}
   audioDubb: {fileID: 0}
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &-670791964129733723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,8 +136,7 @@ MonoBehaviour:
   animationClip: {fileID: 0}
   audioDubb: {fileID: 0}
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,8 +193,7 @@ MonoBehaviour:
   animationClip: {fileID: 0}
   audioDubb: {fileID: 0}
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &4326210409656348146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,9 +221,7 @@ MonoBehaviour:
   animationClip: {fileID: 0}
   audioDubb: {fileID: 0}
   condition:
-    predicate: HasQuest
-    parameters:
-    - "Lide com a amea\xE7a na redondeza"
+    and: []
 --- !u!114 &7350204039190729024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,8 +250,7 @@ MonoBehaviour:
   animationClip: {fileID: 0}
   audioDubb: {fileID: 0}
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &8297742834225385016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,8 +277,7 @@ MonoBehaviour:
   animationClip: {fileID: 0}
   audioDubb: {fileID: 0}
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &8552008925409391030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,5 +305,4 @@ MonoBehaviour:
   animationClip: {fileID: 0}
   audioDubb: {fileID: 0}
   condition:
-    predicate: 
-    parameters: []
+    and: []
