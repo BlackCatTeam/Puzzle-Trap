@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8876537182875326786
+--- !u!114 &-7294216304390267045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,19 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
-  m_Name: eaf7309a-c1d7-4fb6-b142-81e9dd310bed
+  m_Name: e67af639-895f-4e43-98cb-6f06dae76071
   m_EditorClassIdentifier: 
   speaker: 0
-  text: Vim matar o Rei
+  text: "Acredito que posso ajuda-lo! Vou atr\xE1s desses bandidos!"
   children:
-  - 49228393-4c8c-4342-8ebf-5d9bd6d9a661
+  - c65bf09a-4f0c-4359-af47-be5d9681059e
   rect:
     serializedVersion: 2
-    x: 713
-    y: 368
+    x: 878
+    y: 206
     width: 200
     height: 200
---- !u!114 &-4702451883136649626
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    predicate: 
+    parameters: []
+--- !u!114 &-6864450726859072252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32,40 +39,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
-  m_Name: e0113bdc-581e-4a64-a44a-7e66eea48de5
-  m_EditorClassIdentifier: 
-  speaker: 0
-  text: Vou Pescar
-  children:
-  - 9ca48efc-1555-4f50-a662-89087b45742d
-  rect:
-    serializedVersion: 2
-    x: 711
-    y: 47
-    width: 200
-    height: 200
---- !u!114 &-2732148161354575343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
-  m_Name: 9ca48efc-1555-4f50-a662-89087b45742d
+  m_Name: d190f718-7f96-46f5-986d-e86725015473
   m_EditorClassIdentifier: 
   speaker: 1
-  text: "N\xC3O"
+  text: Muito obrigado pela ajuda!
   children: []
   rect:
     serializedVersion: 2
-    x: 971
-    y: 37
+    x: 1267
+    y: 409
     width: 200
     height: 200
---- !u!114 &-1690027416391884358
+  beginAction: 0
+  exitAction: 4
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    predicate: 
+    parameters: []
+--- !u!114 &-3804987250982180527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,19 +67,81 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
-  m_Name: b86153ea-4555-48ea-8606-a29558643628
+  m_Name: c65bf09a-4f0c-4359-af47-be5d9681059e
   m_EditorClassIdentifier: 
   speaker: 1
-  text: "Aqui s\xF3 temos Pessoas Boas"
-  children:
-  - eaf7309a-c1d7-4fb6-b142-81e9dd310bed
-  - e0113bdc-581e-4a64-a44a-7e66eea48de5
+  text: "Obrigado! ser\xE1 de grande ajuda, aqui est\xE1 algumas informa\xE7\xF5es"
+  children: []
   rect:
     serializedVersion: 2
-    x: 332
-    y: 358
+    x: 1262
+    y: 206
     width: 200
     height: 200
+  beginAction: 0
+  exitAction: 3
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    predicate: 
+    parameters: []
+--- !u!114 &-2609196758815543277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: de6ed661-b428-40fb-b7fb-f49bc4022832
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "At\xE9 mais"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 617
+    y: 452
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    predicate: 
+    parameters: []
+--- !u!114 &-670791964129733723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 9b75b9a8-946c-445a-9d25-f6b8b678af35
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: Parece preocupado, Oque houve?
+  children:
+  - 54c1db30-c0ad-4732-a627-30254f3b81ee
+  rect:
+    serializedVersion: 2
+    x: 396
+    y: 211
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,16 +156,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 7350204039190729024}
-  - {fileID: -4702451883136649626}
-  - {fileID: -8876537182875326786}
-  - {fileID: 7392160496984561583}
-  - {fileID: -2732148161354575343}
-  - {fileID: 5928350661750198700}
-  - {fileID: -1690027416391884358}
+  - {fileID: -670791964129733723}
+  - {fileID: 8552008925409391030}
+  - {fileID: 2145671232296763134}
+  - {fileID: -2609196758815543277}
+  - {fileID: -7294216304390267045}
+  - {fileID: 8297742834225385016}
+  - {fileID: -3804987250982180527}
+  - {fileID: 4326210409656348146}
+  - {fileID: -6864450726859072252}
   CanvaxWidth: 4000
   CanvaxHeight: 4000
   newNodeOffset: {x: 250, y: 0}
---- !u!114 &5928350661750198700
+  isSkippable: 1
+--- !u!114 &2145671232296763134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,19 +179,57 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
-  m_Name: d37f04b1-d5bf-4012-ba8f-0ba85643ea4d
+  m_Name: 54c1db30-c0ad-4732-a627-30254f3b81ee
   m_EditorClassIdentifier: 
   speaker: 1
-  text: "Aqui s\xF3 temos Saqueadores"
+  text: "Estou com um problema com bandidos, eles est\xE3o atormentando as redondezas "
   children:
-  - e0113bdc-581e-4a64-a44a-7e66eea48de5
-  - eaf7309a-c1d7-4fb6-b142-81e9dd310bed
+  - e67af639-895f-4e43-98cb-6f06dae76071
+  - c693d482-28e5-43dd-a29d-3012827c62cc
+  - ce6c3cbd-867d-47ae-8b88-f279d5273b9d
   rect:
     serializedVersion: 2
-    x: 347
-    y: 47
+    x: 626
+    y: 206
     width: 200
     height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    predicate: 
+    parameters: []
+--- !u!114 &4326210409656348146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: ce6c3cbd-867d-47ae-8b88-f279d5273b9d
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: Entregar Quest
+  children:
+  - d190f718-7f96-46f5-986d-e86725015473
+  rect:
+    serializedVersion: 2
+    x: 878
+    y: 409
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    predicate: HasQuest
+    parameters:
+    - "Lide com a amea\xE7a na redondeza"
 --- !u!114 &7350204039190729024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,17 +243,24 @@ MonoBehaviour:
   m_Name: cba86a58-2e08-458e-b073-a1009b7aa3bf
   m_EditorClassIdentifier: 
   speaker: 1
-  text: Oque vem fazer nessa cidade?
+  text: "Ol\xE1 cidad\xE3o, Em que posso ajuda-lo?"
   children:
-  - d37f04b1-d5bf-4012-ba8f-0ba85643ea4d
-  - b86153ea-4555-48ea-8606-a29558643628
+  - 9b75b9a8-946c-445a-9d25-f6b8b678af35
+  - 393ae07c-333d-40a7-a05f-f78f1cdaeeb9
   rect:
     serializedVersion: 2
-    x: 74
-    y: 204
+    x: 107
+    y: 224
     width: 200
     height: 200
---- !u!114 &7392160496984561583
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    predicate: 
+    parameters: []
+--- !u!114 &8297742834225385016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,14 +270,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
-  m_Name: 49228393-4c8c-4342-8ebf-5d9bd6d9a661
+  m_Name: c693d482-28e5-43dd-a29d-3012827c62cc
   m_EditorClassIdentifier: 
-  speaker: 1
-  text: Beleza
+  speaker: 0
+  text: Que pena, adeus.
   children: []
   rect:
     serializedVersion: 2
-    x: 1041
-    y: 363
+    x: 853
+    y: 623
     width: 200
     height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    predicate: 
+    parameters: []
+--- !u!114 &8552008925409391030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 393ae07c-333d-40a7-a05f-f78f1cdaeeb9
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: Nada, passar bem
+  children:
+  - de6ed661-b428-40fb-b7fb-f49bc4022832
+  rect:
+    serializedVersion: 2
+    x: 381
+    y: 413
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    predicate: 
+    parameters: []

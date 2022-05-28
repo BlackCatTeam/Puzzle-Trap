@@ -1,3 +1,4 @@
+using BlackCat.Core.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,17 +9,20 @@ namespace BlackCat.Dialogue
 {
     public class PlayerConversant : MonoBehaviour
     {
+        [SerializeField] string PlayerName;
         Dialogue currentDialogue = null;
         DialogueNode currentNode = null;
         bool isChoosing = false;
         public event Action onConversationUpdated;
         private AIConversant aiConversant;
 
+
         public void StartDialog(Dialogue newDialogue,AIConversant newAiConversant)
         {
+            aiConversant = newAiConversant;
             currentDialogue = newDialogue;
             currentNode = currentDialogue.GetRootNode();
-            aiConversant = newAiConversant;
+            TriggerEnterAction();
             onConversationUpdated();
 
         }
@@ -38,37 +42,61 @@ namespace BlackCat.Dialogue
         {
             if (chosenNode == null) return;
             currentNode = chosenNode;
+            TriggerEnterAction();
             isChoosing = false;
             Next();
         }
+
+        public string GetCurrentConversantName()
+        {
+            if (isChoosing)
+            {
+                return PlayerName;
+            }
+            else
+            {
+                return aiConversant.GetSpeaker(currentNode.GetSpeaker()).GetComponent<AIConversant>().GetName();
+            }
+        }
+
         public bool IsSkippable()
         {
             return currentDialogue.GetIsSkippable();
         }
         public IEnumerable<DialogueNode> GetChoices()
         {
-            return currentDialogue.GetPlayerChildren(currentNode);                     
+            return FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode));                     
         }
 
         public bool IsLastNode() => currentDialogue.IsLastNode(currentNode);
         public void Next()
         {
-            int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
+            int numPlayerResponses =FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode)).Count();
             if (numPlayerResponses > 0)
             {
-                isChoosing = true;
+                isChoosing = true; 
+                TriggerExitAction();
                 onConversationUpdated();
 
                 return;
             }
-
-            DialogueNode[] children = currentDialogue.GetAIChildren(currentNode).ToArray();
+            TriggerExitAction();
+            if (HasNext())
+            {
+                DialogueNode[] children = FilterOnCondition(currentDialogue.GetAIChildren(currentNode)).ToArray();
             int randomIndex = UnityEngine.Random.Range(0, children.Count());
-            currentNode = children[randomIndex];
-            VerifyBeginAction();
-            VerifyAnimation();
-            VerifyDubbing();
-            onConversationUpdated();
+          
+                currentNode = children[randomIndex];
+                TriggerEnterAction();
+                VerifyAnimation();
+                VerifyDubbing();
+                onConversationUpdated();
+            }
+            else
+            {
+                Quit();
+            }
+          
 
         }
 
@@ -103,27 +131,59 @@ namespace BlackCat.Dialogue
             
         }
 
-        private void VerifyBeginAction()
+
+        private void TriggerEnterAction()
         {
+            VerifyAction(isEnterAction: true);
+        }
+        private void TriggerExitAction()
+        {
+            VerifyAction(isEnterAction:false);
+        }
 
-            switch (currentNode.GetAction(true))
+        private void VerifyAction(bool isEnterAction)
+        {
+            if (currentNode == null) return;            
+            TriggerAction(currentNode.GetAction(isEnterAction));
+                    
+            
+        }
+
+        private void TriggerAction(ActionType actionType)
+        {
+            if (actionType == ActionType.Nothing) return;
+
+            foreach(DialogueTrigger trigger in aiConversant.GetComponents<DialogueTrigger>())
             {
-                case ActionType.Nothing: return;
-                case ActionType.Shop: return;
-                case ActionType.Fight: return;
-                default: return;
+                trigger.Trigger(actionType);
             }
-
         }
 
         public void Quit()
         {
             currentDialogue = null;
+            TriggerExitAction();
+            aiConversant = null;
             currentNode = null;
             isChoosing = false;
             onConversationUpdated();
         }
-        public bool HasNext() => currentDialogue.GetAllChildren(currentNode).Count() > 0;
-        
+        public bool HasNext() => FilterOnCondition(currentDialogue.GetAllChildren(currentNode)).Count() > 0;
+
+        public IEnumerable<DialogueNode> FilterOnCondition(IEnumerable<DialogueNode> inputNode)
+        {
+            foreach (var node in inputNode)
+            {
+                if (node.CheckCondition(GetEvaluators()))
+                {
+                    yield return node;
+                }
+            }
+        }
+
+        private IEnumerable<IPredicateEvaluator> GetEvaluators() 
+        {
+            return GetComponents<IPredicateEvaluator>();
+        }
     }
 }

@@ -347,6 +347,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc64b33e049d7645b7d7ed032f09d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1150979087195058391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8423986746871540502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd152f7be2b95547b8f35992356e35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerName: 
 --- !u!114 &2495500649308698066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experiencePoints: 0
---- !u!114 &1150979087195058391
+--- !u!114 &8140209472089882034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -452,7 +465,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8423986746871540502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcd152f7be2b95547b8f35992356e35e, type: 3}
+  m_Script: {fileID: 11500000, guid: 14cd513735e18c24e85e5df49573ff35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDialogue: {fileID: 11400000, guid: dab25011da034754bb15b20d2d655979, type: 2}
+  statuses:
+  - quest: {fileID: 11400000, guid: c70b7ff31290ef148aa9601acdf64c21, type: 2}
+    completedObjectives:
+    - A
+    - B
+  - quest: {fileID: 11400000, guid: 821b80fa4831740429659e273a9a8af1, type: 2}
+    completedObjectives:
+    - 1
+    - 2

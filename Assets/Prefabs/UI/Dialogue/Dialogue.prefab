@@ -280,6 +280,7 @@ MonoBehaviour:
   choiceRoot: {fileID: 7360483686823317256}
   choicePrefab: {fileID: 8566102973032066669, guid: 00436d826159dcd49a56150985611fe1, type: 3}
   quitButton: {fileID: 4194800403588269654}
+  SpeakerName: {fileID: 1822528882871608224}
 --- !u!1 &5663505622061193805
 GameObject:
   m_ObjectHideFlags: 0
