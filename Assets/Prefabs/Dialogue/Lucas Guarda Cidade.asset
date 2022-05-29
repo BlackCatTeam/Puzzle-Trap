@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8403580010257299739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 1c6e3e47-b785-401d-8d86-94bc4ad6d75b
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "Meu \xE9 Lucas Afonso"
+  children:
+  - 890c4798-3583-4536-a860-75de731c2f4e
+  - 44563ca0-1e34-417a-9d6c-da10a499520c
+  rect:
+    serializedVersion: 2
+    x: 533
+    y: 37
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &-2642394160118285948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 890c4798-3583-4536-a860-75de731c2f4e
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: 'Cala boca [ Fight ] '
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 916
+    y: 206
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &-1444041747110437289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 479ac058-fe71-47fa-b4f5-6d72f4de13e2
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "Meu \xE9 Lucas Roberto"
+  children:
+  - 890c4798-3583-4536-a860-75de731c2f4e
+  - 44563ca0-1e34-417a-9d6c-da10a499520c
+  rect:
+    serializedVersion: 2
+    x: 536
+    y: 239
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &-1175297046358754296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: e1133f3d-d071-49bc-b05b-cbf82074f267
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "Oi\t"
+  children:
+  - 260d9757-39c4-406b-be1a-a2286f482bf7
+  - 1c6e3e47-b785-401d-8d86-94bc4ad6d75b
+  - 479ac058-fe71-47fa-b4f5-6d72f4de13e2
+  rect:
+    serializedVersion: 2
+    x: 109
+    y: 295
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52954d843245cb14fa6aba3e8d02d13d, type: 3}
+  m_Name: Lucas Guarda Cidade
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -1175297046358754296}
+  - {fileID: 8900564804613553780}
+  - {fileID: -8403580010257299739}
+  - {fileID: -1444041747110437289}
+  - {fileID: -2642394160118285948}
+  - {fileID: 3790465148683610736}
+  - {fileID: 741759041121414546}
+  CanvaxWidth: 4000
+  CanvaxHeight: 4000
+  newNodeOffset: {x: 250, y: 0}
+  isSkippable: 1
+--- !u!114 &741759041121414546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 282aa398-4258-43dd-aff4-3e7c04c82531
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: Ver Loja
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 910
+    y: 498
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters: []
+        negate: 0
+--- !u!114 &3790465148683610736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 44563ca0-1e34-417a-9d6c-da10a499520c
+  m_EditorClassIdentifier: 
+  speaker: 0
+  text: Prazer lucas
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 933
+    y: -21
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
+--- !u!114 &8900564804613553780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc326b061136b7469b6d07fd992877a, type: 3}
+  m_Name: 260d9757-39c4-406b-be1a-a2286f482bf7
+  m_EditorClassIdentifier: 
+  speaker: 1
+  text: "Meu \xE9 Lucas Arcasa"
+  children:
+  - 890c4798-3583-4536-a860-75de731c2f4e
+  - 44563ca0-1e34-417a-9d6c-da10a499520c
+  - 282aa398-4258-43dd-aff4-3e7c04c82531
+  rect:
+    serializedVersion: 2
+    x: 536
+    y: 442
+    width: 200
+    height: 200
+  beginAction: 0
+  exitAction: 0
+  animationClip: {fileID: 0}
+  audioDubb: {fileID: 0}
+  condition:
+    and: []
