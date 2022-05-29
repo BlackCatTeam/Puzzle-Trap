@@ -13,11 +13,17 @@ MonoBehaviour:
   m_Name: Espada Flamejante
   m_EditorClassIdentifier: 
   itemID: 068058c3-a61f-4ac0-9696-c75c66eb8524
-  displayName: 
-  description: 
-  icon: {fileID: 0}
-  pickup: {fileID: 0}
+  displayName: espada Flamejante
+  description: "\xE9 Uma espada que pega fogo"
+  icon: {fileID: 21300000, guid: 4116f21237ed1a24abeef696c6f13608, type: 3}
+  pickup: {fileID: -5940895722424676426, guid: df9e69798ccb5ac4ab1e0878bf921efa, type: 3}
   stackable: 0
   allowedEquipLocation: 5
-  additiveModifiers: []
-  percentageModifiers: []
+  additiveModifiers:
+  - stat: 3
+    value: 20
+  - stat: 0
+    value: 50
+  percentageModifiers:
+  - stat: 3
+    value: 10

@@ -13,7 +13,26 @@ MonoBehaviour:
   m_Name: Quest Generica MMO
   m_EditorClassIdentifier: 
   objectives:
-  - Fale Com o Ferreiro
-  - Fale com o Alquimista
-  - Fale com o Mestre das Armas
-  - Fale com o Armeiro
+  - reference: 
+    description: 
+    count: 0
+  - reference: 
+    description: 
+    count: 0
+  - reference: 
+    description: 
+    count: 0
+  - reference: 
+    description: 
+    count: 0
+  rewards:
+  - number: 1
+    item: {fileID: 0}
+  - number: 3
+    item: {fileID: 0}
+  - number: 4
+    item: {fileID: 0}
+  - number: 0
+    item: {fileID: 0}
+  - number: 0
+    item: {fileID: 0}

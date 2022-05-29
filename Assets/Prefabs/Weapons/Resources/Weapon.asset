@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Weapon
   m_EditorClassIdentifier: 
   itemID: edf620fa-bf27-4ee7-bad7-2bff1bcc3a0d
-  displayName: 
-  description: 
+  displayName: tetaet
+  description: atetae
   icon: {fileID: 0}
   pickup: {fileID: 0}
   stackable: 0
   allowedEquipLocation: 5
-  animatorOverride: {fileID: 0}
+  animatorOverride: {fileID: 22100000, guid: e3518a57f45fdb14c950152fa7aed050, type: 2}
   equippedPrefab: {fileID: 0}
   damage: 0
   percentageDamageBonus: 0

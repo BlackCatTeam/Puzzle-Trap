@@ -156,8 +156,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 910
-    y: 498
+    x: 914
+    y: 425
     width: 200
     height: 200
   beginAction: 0
@@ -168,7 +168,12 @@ MonoBehaviour:
     and:
     - or:
       - predicate: HasQuest
-        parameters: []
+        parameters:
+        - Entregue o Pao pro Jorge
+        negate: 0
+      - predicate: HasItem
+        parameters:
+        - bd083013-9ff7-4fb7-9566-07f8b8491ceb
         negate: 0
 --- !u!114 &3790465148683610736
 MonoBehaviour:

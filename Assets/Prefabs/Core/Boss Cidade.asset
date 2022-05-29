@@ -12,4 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 732c554ea18179744ad1c4c312a7807b, type: 3}
   m_Name: Boss Cidade
   m_EditorClassIdentifier: 
-  characterClasses: []
+  characterClasses:
+  - characterClass: 1
+    stats:
+    - stat: 0
+      levels:
+      - 100
+    - stat: 3
+      levels:
+      - 10
+    - stat: 1
+      levels:
+      - 5000

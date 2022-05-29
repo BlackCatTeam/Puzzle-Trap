@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectives:
   - reference: 1
-    description: "Lide com a amea\xE7a "
+    description: "Lide com a amea\xE7a  Barbara"
     count: 0
   rewards:
   - number: 1

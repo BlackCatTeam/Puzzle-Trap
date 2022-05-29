@@ -86,5 +86,5 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  minDrop: 
-  maxDrop: 
+  minDrop: 00000000
+  maxDrop: 00000000

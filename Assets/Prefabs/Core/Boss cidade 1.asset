@@ -12,7 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6745fe30042e21c4f9a6eb57fe1ac01d, type: 3}
   m_Name: Boss cidade 1
   m_EditorClassIdentifier: 
-  potentitalDrops: []
-  dropChancePercentage: []
-  minDrop: 
-  maxDrop: 
+  potentitalDrops:
+  - item: {fileID: 11400000, guid: 13d62f3848c05574386feff08cd562b2, type: 2}
+    relativeChance:
+    - 50
+    minNumber: 01000000
+    maxNumber: 01000000
+  - item: {fileID: 11400000, guid: 4e58ee75aaca4a24ba6dee92f4fe4052, type: 2}
+    relativeChance:
+    - 70
+    minNumber: 01000000
+    maxNumber: 
+  - item: {fileID: 11400000, guid: 0229b87444159a04a803a1810aed7dc5, type: 2}
+    relativeChance:
+    - 80
+    minNumber: 01000000
+    maxNumber: 02000000
+  dropChancePercentage:
+  - 0
+  minDrop: 03000000
+  maxDrop: 05000000
