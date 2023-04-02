@@ -14,7 +14,7 @@ namespace BlackCat.Cinematics {
             {
 
                 GetComponent<PlayableDirector>().Play();
-                alreadyTrigger = true; ;
+                alreadyTrigger = true;
 
             }
         }

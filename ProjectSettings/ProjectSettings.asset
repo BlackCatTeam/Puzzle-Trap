@@ -602,7 +602,20 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: UNITY_POST_PROCESSING_STACK_V1
+    7: UNITY_POST_PROCESSING_STACK_V1
+    13: UNITY_POST_PROCESSING_STACK_V1
+    14: UNITY_POST_PROCESSING_STACK_V1
+    19: UNITY_POST_PROCESSING_STACK_V1
+    21: UNITY_POST_PROCESSING_STACK_V1
+    25: UNITY_POST_PROCESSING_STACK_V1
+    27: UNITY_POST_PROCESSING_STACK_V1
+    28: UNITY_POST_PROCESSING_STACK_V1
+    29: UNITY_POST_PROCESSING_STACK_V1
+    30: UNITY_POST_PROCESSING_STACK_V1
+    32: UNITY_POST_PROCESSING_STACK_V1
+    33: UNITY_POST_PROCESSING_STACK_V1
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
@@ -626,11 +639,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: TemplateLightweight
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: C:\Users\mmosh\Projetos\Black Cat\Puzzle-Trap\Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: Black Cat
+  metroCertificateIssuer: Black Cat
+  metroCertificateNotAfter: 00a092e05768da01
   metroApplicationDescription: Template_Lightweight
   wsaImages: {}
   metroTileShortName: Puzzle Trap

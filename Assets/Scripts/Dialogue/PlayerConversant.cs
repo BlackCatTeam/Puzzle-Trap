@@ -21,6 +21,7 @@ namespace BlackCat.Dialogue
         {
             aiConversant = newAiConversant;
             currentDialogue = newDialogue;
+            Debug.Log("How Many Nodes have: " + currentDialogue.GetAllNodes().Count());
             currentNode = currentDialogue.GetRootNode();
             TriggerEnterAction();
             onConversationUpdated();
@@ -71,7 +72,10 @@ namespace BlackCat.Dialogue
         public bool IsLastNode() => currentDialogue.IsLastNode(currentNode);
         public void Next()
         {
+
             int numPlayerResponses =FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode)).Count();
+            Debug.Log("numPlayerResponses: "+ numPlayerResponses);
+            Debug.Log("HasNext" + HasNext());
             if (numPlayerResponses > 0)
             {
                 isChoosing = true; 
@@ -168,7 +172,7 @@ namespace BlackCat.Dialogue
             isChoosing = false;
             onConversationUpdated();
         }
-        public bool HasNext() => FilterOnCondition(currentDialogue.GetAllChildren(currentNode)).Count() > 0;
+        public bool HasNext() => currentDialogue.GetAllChildren(currentNode).Count() > 0;
 
         public IEnumerable<DialogueNode> FilterOnCondition(IEnumerable<DialogueNode> inputNode)
         {

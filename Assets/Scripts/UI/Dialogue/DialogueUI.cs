@@ -39,7 +39,9 @@ namespace BlackCat.UI
             quitButton.gameObject.SetActive(playerConversant.IsSkippable());
             choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
             nextButton.gameObject.SetActive(!playerConversant.IsChoosing());
-
+            Debug.Log("ISCHOOSING PLAYER : " + playerConversant.IsChoosing());
+            Debug.Log("HAS NEXT : " + playerConversant.HasNext());
+            Debug.Log("IsLastNode : " + playerConversant.IsLastNode());
             if (playerConversant.IsChoosing())
             {
                 BuildChoiceList();

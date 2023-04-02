@@ -1,3 +1,4 @@
+using BlackCat.Attributes;
 using BlackCat.Control;
 using BlackCat.Dialogue;
 using System.Collections;
@@ -6,9 +7,11 @@ using UnityEngine;
 
 public class AIConversant : MonoBehaviour, IRaycastable
 {
+
+
+    Health health;
     [SerializeField] string npcName;
     [SerializeField] Dialogue dialogue = null;
-    [SerializeField] SpeakerType speaker = SpeakerType.NPC1;
     [Space(10)]
     [Header("A Variavel Npc 1 caso Nula, pega o GameObject de Origem")]
 
@@ -20,10 +23,14 @@ public class AIConversant : MonoBehaviour, IRaycastable
     [SerializeField] GameObject Enemy1 = null;
     [SerializeField] GameObject Enemy2 = null;
     [SerializeField] GameObject Enemy3 = null;
-    private void Awake()
+
+
+    private void Start()
     {
+        Debug.Log("START");
         if (npc1 is null)
             npc1 = this.gameObject;
+        health = GetComponent<Health>();
     }
     public string GetName()
     {
@@ -50,7 +57,7 @@ public class AIConversant : MonoBehaviour, IRaycastable
     public bool HandleRayCast(PlayerController callingController)
     {
         if (dialogue == null) return false;
-
+        if (health.IsDead()) return false;
         if (Input.GetMouseButtonDown(0))
         {
             callingController.GetComponent<PlayerConversant>().StartDialog(dialogue,this);

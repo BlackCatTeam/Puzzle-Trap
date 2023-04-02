@@ -13,7 +13,7 @@ namespace BlackCat.Stats {
 		[SerializeField] private CharacterClass characterClass;
 		[SerializeField] Progression progression;
 		[SerializeField] GameObject levelUpEffect;
-
+			
 		public event Action OnLevelUp;
 		LazyValue<int> currentLevel;
 

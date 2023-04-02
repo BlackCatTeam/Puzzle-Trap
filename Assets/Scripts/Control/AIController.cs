@@ -26,7 +26,7 @@ namespace BlackCat.Control {
         [SerializeField]
         float shoutDistance = 5f;
 
-        LazyValue<Vector3> guardPosition;
+        LazyValue<Vector3> guardPosition;   
         [SerializeField]
         float timePauseBetweenWaypoint = 3f;
         float timeSpendInWaypoint = Mathf.Infinity;
@@ -82,6 +82,7 @@ namespace BlackCat.Control {
             UpdateTimers();
         }
 
+        
         private bool IsAggravate()
         {
             return DistanceToPlayer() < chaseDistance || timeSinceAggrevated < AgroCooldown;
